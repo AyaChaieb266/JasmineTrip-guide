@@ -1,0 +1,5 @@
+.custom-img-size {
+    width: 350px;  /* Largeur de 900 pixels */
+    height: 400px;  /* Hauteur de 1200 pixels */
+    object-fit: cover;  /* Pour couvrir l'espace sans déformer l'image */
+}

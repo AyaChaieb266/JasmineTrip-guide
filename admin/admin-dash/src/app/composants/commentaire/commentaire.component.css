@@ -1,0 +1,36 @@
+ngb-rating{
+    color: #031c03;
+    font-size: 25PX;
+} 
+.see-more-link {
+    color: white;
+    background-color: rgb(119, 112, 112);
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.see-more-link:hover {
+    color: white;
+    background-color: black;
+}
+.starr {
+    position: relative;
+    display: inline-block;
+    font-size: 30px;
+    color: #dad4c6;
+  
+  }
+  
+  .full {
+    color: #06160d;
+  }
+  
+  .half {
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    color: #FFC107;
+  }
+  
+  

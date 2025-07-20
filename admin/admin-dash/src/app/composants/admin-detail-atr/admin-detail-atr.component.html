@@ -1,0 +1,148 @@
+
+
+
+
+
+<div class="content-body">
+
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Liste Attraction</h4>
+        </div>
+
+
+
+
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand"><div class="d-flex align-items-center mb-2">
+                     
+                      <div class="newest ms-3">
+                          <select class="form-control" (change)="getCAT($event)">
+                              <option value="">Toutes les catégories</option>
+                              <option *ngFor="let c of listCategory" [value]="c.id">{{c.name}}</option>
+                          </select>
+                      </div>
+                  </div>
+          </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" ><div class="nav-item d-flex align-items-center">
+                      <div class="input-group search-area">
+                          <input type="text" class="form-control" placeholder="search" [(ngModel)]="term">
+                          <span class="input-group-text"><a href="javascript:void(0)"><i class="flaticon-381-search-2"></i></a></span>
+                      </div>
+                  </div></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><div  class="newest ms-3" >
+                      <a  routerLink="/home/add_attraction" class="btn btn-secondary">+ Nouvel Attraction</a>
+                     
+                  </div></a>
+                  </li>
+                 
+                </ul>
+              </div>
+            </div>
+          </nav>
+          
+          
+        <!-- <button routerLink="/add_attraction"> addAttraction</button> -->
+        
+        <!-- <div  class="newest ms-3" > 
+            <a  routerLink="/add_attraction" class="btn btn-secondary">+ New Attraction</a>
+           
+        </div>
+        <div class="d-flex align-items-center mb-2"> 
+            
+            <div class="newest ms-3">
+                <select class="form-control" (change)="getCAT($event)">
+                    <option value="">Toutes les catégories</option>
+                    <option *ngFor="let c of listCategory" [value]="c.id">{{c.name}}</option>
+                </select>
+            </div>	
+        </div>
+
+
+        <div class="nav-item d-flex align-items-center">
+            <div class="input-group search-area">
+                <input type="text" class="form-control" placeholder="search" [(ngModel)]="term">
+                <span class="input-group-text"><a href="javascript:void(0)"><i class="flaticon-381-search-2"></i></a></span>
+            </div>
+        </div> -->
+
+      
+
+        
+
+
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-responsive-md">
+                    <thead>
+                        <tr >
+                            <th style="width:50px;">
+                                <div class="form-check custom-checkbox checkbox-success check-lg me-3">
+                                    <input type="checkbox" class="form-check-input" id="checkAll" required="">
+                                    <label class="form-check-label" for="checkAll"></label>
+                                </div>
+                            </th>
+                            <th><strong>ID</strong></th>
+                            <th><strong>Name</strong></th>
+                            <th><strong>Location</strong></th>
+                            <th><strong>Available_lang</strong></th>
+                            <th><strong>Opening_hour</strong></th>
+                            <th><strong>Closing_hour</strong></th>
+                        
+                            <th><strong>Services</strong></th>
+                            <th><strong>Visitor_number</strong></th>
+                            <th><strong>Action</strong></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor ="let attraction of listAttraction | filter:term | paginate: { itemsPerPage: 6, currentPage: p}" >
+                            <td>
+                                <div class="form-check custom-checkbox checkbox-success check-lg me-3">
+                                    <input type="checkbox" class="form-check-input" id="customCheckBox2" required="">
+                                    <label class="form-check-label" for="customCheckBox2"></label>
+                                </div>
+                            </td>
+                            <td><strong>{{attraction.id}}</strong></td>
+                            <td><div class="d-flex align-items-center"><img src="http://localhost:8089/CATEGORY-SERVICE/attractions/files/{{attraction.photos[0]}}" class="rounded-lg me-2" width="24" alt=""/> <span class="w-space-no">{{attraction.name}}</span></div></td>
+                            <td>{{attraction.location}}	</td>
+                            <td>{{attraction.available_Lang }}</td>
+                            <td>{{attraction.opening_hour}}</td>
+
+                            <td><div class="d-flex align-items-center"> {{attraction.closing_hour}}</div></td>
+                            <td>
+                                <a [routerLink]="['/home/service', attraction.id]" click="" class="btn btn-link">Services</a>
+                            </td>
+                           <td>{{attraction.visitor_numbers}}</td>
+                           
+                            <td>
+                                <div class="d-flex">
+                                    <a [routerLink]="['/home/update-attraction',attraction.id]" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+                                    <a (click)="delete(attraction.id)" class="btn btn-danger shadow btn-xs sharp me-1"><i class="fa fa-trash"></i></a>
+                                    <a [routerLink]="['/home/detail', attraction.id]" class="btn btn-primary shadow btn-xs sharp "><i class="fas fa-info-circle"></i></a>
+
+                                </div>
+                            </td>
+                        </tr>
+                        
+      
+                    </tbody>
+                </table>
+            </div>
+            <div style="display: flex; justify-content: center;">
+                <pagination-controls  (pageChange)="p = $event"></pagination-controls>
+            </div>
+            
+        </div>
+    </div>
+</div>
+</div>

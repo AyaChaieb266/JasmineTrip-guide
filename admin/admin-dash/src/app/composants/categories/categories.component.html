@@ -1,0 +1,112 @@
+<div class="content-body">
+
+    <div class="col-lg-12">
+        <div class="card">
+
+
+
+
+
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav w-100 d-flex justify-content-center align-items-center">
+                            <li class="nav-item">
+                                <div class="newest ms-3">
+                                    <a routerLink="/home/add-categorie" class="btn btn-secondary">+ Nouvelle
+                                        Catégorie</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="newest ms-3">
+                                    <a routerLink="/home/add_attraction" class="btn btn-secondary">+ Nouvelle
+                                        Attraction</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </nav>
+
+
+
+
+
+
+
+
+
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-responsive-md">
+                        <thead>
+                            <tr>
+                                <th style="width:50px;">
+                                    <div class="form-check custom-checkbox checkbox-success check-lg me-3">
+                                        <input type="checkbox" class="form-check-input" id="checkAll" required="">
+                                        <label class="form-check-label" for="checkAll"></label>
+                                    </div>
+                                </th>
+                                <th><strong>ID</strong></th>
+                                <th><strong>Nom</strong></th>
+                                <th><strong>Description</strong></th>
+                                <th><strong>Modifier</strong></th>
+                                <th><strong>Supprimer</strong></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr
+                                *ngFor="let c of listCategory | paginate: { itemsPerPage: 6, currentPage: p}">
+                                <td>
+                                    <div class="form-check custom-checkbox checkbox-success check-lg me-3">
+                                        <input type="checkbox" class="form-check-input" id="customCheckBox2"
+                                            required="">
+                                        <label class="form-check-label" for="customCheckBox2"></label>
+                                    </div>
+                                </td>
+                                <td><strong> {{c.id}}</strong></td>
+                                <td> {{c.name}}<span class="w-space-no"></span></td>
+                                <td>{{c.description}}</td>
+
+                                <td><a [routerLink]="['/home/update-categorie',c.id]" class="btn btn-primary shadow btn-xs sharp me-1"><i
+                                            class="fas fa-pencil-alt"></i></a></td>
+
+
+
+
+
+                                <td><a (click)="delete(c.id)" class="btn btn-danger shadow btn-xs sharp me-1"><i class="fa fa-trash"></i></a>
+                                    <div class="d-flex align-items-center"> </div>
+                                </td>
+                                <td></td>
+                                <td></td>
+
+                                <td>
+                                    <div class="d-flex">
+
+
+
+
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <div style="display: flex; justify-content: center;">
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

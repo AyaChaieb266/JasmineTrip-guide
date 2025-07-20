@@ -1,0 +1,141 @@
+
+
+<div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="3" data-background="assets/img/slider/5.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-left caption mt-90">
+              <br><br><br>
+
+                <h1> Modifier ton profil </h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="contact section-padding d-flex justify-content-center align-items-center">
+    <div class="container">
+
+
+  
+  
+
+
+
+
+
+    <div class="row mb-90"  >
+     
+      <div class="col-md-8 mb-30 offset-md-3">
+        <h3>Modifier les coordonnée du Profile</h3>
+        <form  [formGroup]="formUpdate"  class="contact__form" >
+
+          <div class="row">
+            <div class="col-12">
+              <div class="alert alert-success contact__msg" style="display: none" role="alert"> Your message was sent successfully. </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 form-group">
+              <input formControlName="email" name="email" type="email"  required
+                     id="email" placeholder="example@gmail.com *" value="" required="">
+              <div class="invalid-feedback">
+                Valid email is required.
+              </div>
+
+            </div>
+
+
+
+            <div class="col-md-6 form-group">
+              <input formControlName="username" name="username" type="text" placeholder="Your name *"
+                     required="" id="username">
+              <div class="invalid-feedback">
+                Valid username is required.
+              </div>
+            </div>
+
+
+            <div class="col-md-6 form-group">
+              <input formControlName="phoneNumber" name="phoneNumber" type="text" placeholder="Your Phone Number *" required
+                     id="phoneNumber"  value="" required="">
+              <div class="invalid-feedback">
+                Valid phoneNumber is required.
+              </div>
+            </div>
+
+
+            <div class="col-md-6 form-group">
+              <input formControlName="addresse" name="addresse" type="text" placeholder="Adresse*" id="addresse"
+                     value="" required="">
+              <div class="invalid-feedback">
+                Valid addresse is required.
+              </div>
+            </div>
+
+
+            <div class="col-md-6 form-group">
+              <input formControlName="passport_num" name="passport_num" type="text" placeholder="passport_num"
+                     id="passport_num"  value="" required="">
+              <div class="invalid-feedback">
+                Valid nationnality is required.
+              </div>
+            </div>
+
+
+            <div  class="col-md-6 form-group">
+              <input  formControlName="password" name="password" type="password" placeholder="password *" required
+                      id="password"  value="" required="">
+              <div class="invalid-feedback">
+                Valid password is required.
+              </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+              <input  class="form-control" name="file" type="file" accept="image/*" required=""
+                      (change)="handleFileInput($event)" >
+            </div>
+
+            <div class="col-md-12 text-center" >
+              <button  (click)="Register()"  type="submit" class="butn-dark2" ><span> Modifier</span></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

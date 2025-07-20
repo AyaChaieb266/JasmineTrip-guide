@@ -1,0 +1,141 @@
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row page-titles">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Shop</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Checkout</a></li>
+            </ol>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+
+                            <div class="col-lg-8 order-lg-1">
+                                <h4 class="mb-3">Updated your Attraction</h4>
+                                <form [formGroup]="form" class="needs-validation" novalidate="">
+                                    <div class="row">
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label class="form-label">Category</label>
+                                                <select formControlName="cat_id" class=" form-control wide w-100">
+                                                    <option>Choose Category</option>
+                                                    <option *ngFor="let p of listCategory" [value]="p.id">{{p.name}}
+                                                    </option>
+                                                </select>
+                                                <div class="invalid-feedback">
+                                                    Please select a valid country.
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 mb-3">
+                                                <label for="firstName" class="form-label">First name</label>
+                                                <input formControlName="name" type="text" class="form-control"
+                                                    id="firstName" placeholder="" value="" required="">
+                                                <div class="invalid-feedback">
+                                                    Valid first name is required.
+                                                </div>
+                                            </div>
+    
+                                        </div>
+                                       
+
+
+                                        <div class="col-md-6 mb-3">
+                                            <label for="location" class="form-label">Location</label>
+                                            <input formControlName="location" type="text" class="form-control"
+                                                id="location" placeholder="" value="" required="">
+                                            <div class="invalid-feedback">
+                                                Valid first name is required.
+                                                
+                                            </div>
+
+
+                                            
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="available_Lang" class="form-label">available Language</label>
+                                            <input formControlName="available_Lang" type="text" class="form-control"
+                                                id="available_Lang" placeholder="" value="" required="">
+                                            <div class="invalid-feedback">
+                                                Valid first name is required.
+                                            </div>
+                                        </div>
+
+                                        
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="description" class="form-label">Description</label>
+                                            <textarea formControlName="description" type="text" class="form-control"
+                                                id="description" placeholder="" value="" required=""> </textarea>
+                                            <div class="invalid-feedback">
+                                                Valid first name is required.
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-3">
+                                            <label for="opening_hour" class="form-label"> Opening hours</label>
+                                            <input formControlName="opening_hour" type="text" class="form-control"
+                                                id="opening_hour" placeholder="" value="" required="">
+                                            <div class="invalid-feedback">
+                                                Valid first name is required.
+                                            </div>
+                                            <label for="closing_hour" class="form-label"> Closing hours</label>
+                                            <input formControlName="closing_hour" type="text" class="form-control"
+                                                id="closing_hour" placeholder="" value="" required="">
+                                            <div class="invalid-feedback">
+                                                Valid first name is required.
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-md-6 mb-3">
+                                            <label for="price" class="form-label"> Price</label>
+                                            <input formControlName="price" type="text" class="form-control" id="price"
+                                                placeholder="" value="" required="">
+                                            <div class="invalid-feedback">
+                                                Valid first name is required.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="visitor_numbers" class="form-label"> Visitor Numbers</label>
+                                            <input formControlName="visitor_numbers" type="text" class="form-control"
+                                                id="visitor_numbers" placeholder="" value="" required="">
+                                            <div class="invalid-feedback">
+                                                Valid first name is required.
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                  
+                                    <div class="form-group">
+                                        <div>
+                                           
+                                            <label class="form-label"> <p> 
+
+                                            Images:  (nb image:{{attractionByid.photos.length}})</p></label>
+                                            <input class="form-control" type="file" (change)="onFileChange($event)"
+                                                name="files" multiple>
+                                        </div>
+                                    </div>
+
+
+
+                                    <button (click)="updateAttraction()" class="btn btn-primary btn-lg btn-block"
+                                        type="submit">Update </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

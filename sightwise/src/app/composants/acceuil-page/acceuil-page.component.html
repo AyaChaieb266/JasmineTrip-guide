@@ -1,0 +1,153 @@
+<header class="header slider-fade">
+    <div class="owl-carousel owl-theme">
+        <!-- The opacity on the image is made with "data-overlay-dark="number". You can change it using the numbers 0-9. -->
+        <div class="text-center item bg-img" data-overlay-dark="2" data-background="assets/img/slider/Y.jpg">
+            <div class="v-middle caption">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1">
+
+                            <h4>JAWLATY & Meillers Attractions</h4>
+                            <h1>Profitez des Experience</h1>
+                            <div class="butn-light mt-30 mb-30"> <a href="#" data-scroll-nav="1"><span>chercher Attractions</span></a> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center item bg-img" data-overlay-dark="2" data-background="assets/img/slider/Z.jpg">
+            <div class="v-middle caption">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1">
+
+                            <h4> Endroits de confort & plaisir</h4>
+                            <h1>La base parfaite pour vous</h1>
+                            <div class="butn-light mt-30 mb-30"> <a href="#" data-scroll-nav="1"><span>chercher Attractions</span></a> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center item bg-img" data-overlay-dark="3" data-background="assets/img/slider/2A.jpg">
+            <div class="v-middle caption">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1">
+
+                            <h4>L’expérience ultime des attractions</h4>
+                            <h1>Profitez des meilleurs moments de la vie</h1>
+                            <div class="butn-light mt-30 mb-30"> <a href="#" data-scroll-nav="1"><span>Decouvrez Attractions</span></a> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- slider reservation -->
+    <div class="reservation">
+        <a href="tel:56888777">
+            <div class="icon d-flex justify-content-center align-items-center">
+                <i class="flaticon-call"></i>
+            </div>
+            <div class="call"><span>56888777</span> <br>Reservation</div>
+        </a>
+    </div>
+</header>
+
+<div class="booking-wrapper">
+    <div class="container">
+        <div class="booking-inner clearfix">
+            <form  class="form1 clearfix">
+                <div class="col1 c1">
+                    <div class="input1_wrapper">
+                        <label>Check in</label>
+                        <div class="input1_inner">
+                            <input type="text" class="form-control input datepicker" placeholder="Check in">
+                        </div>
+                    </div>
+                </div>
+                <div class="col1 c2">
+                    <div class="input1_wrapper">
+                        <label>Check out</label>
+                        <div class="input1_inner">
+                            <input type="text" class="form-control input datepicker" placeholder="Check out">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col2 c5">
+                    <div class="select1_wrapper">
+                        <label> category </label>
+                        <div class="select1_inner">
+                            <select class="bt selectt" (change)="getCAT($event)" >
+                              <option value=""  disabled selected>Select categorie</option>
+                              <option value="All Categories" >Tout Categories</option>
+                              <option class="h" *ngFor="let c of listCategory" [value]="c.name">{{ c.name }}</option>
+                            </select>
+                          </div>
+                    </div>
+                </div>
+                <div class="col3 c6">
+                    <button [routerLink]="['/attraction']" type="submit" (click)=" refreshPageWithAction()" class="btn-form1-submit" > Vers Attraction</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Button trigger modal -->
+<!--<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">-->
+<!--  Launch demo modal-->
+<!--</button>-->
+
+   <!-- Modal -->
+   <div class="modal fade" #categoryModal id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="categoryModalLabel">Liste de : {{ selectedcategory }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Affichez les détails de la catégorie sélectionnée ici -->
+          <p> Liste des attractions Par Categories </p>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col"> Vue de l'Attraction</th>
+                <th scope="col">Nom de l'Attraction</th>
+                <th scope="col">Localisation</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let p of listAttraction; let  i = index">
+                <th scope="row">{{i + 1}}</th>
+                <td>
+                    <a type="submit" (click)="viewAllImages(p)">
+                        <img src="http://localhost:8089/CATEGORY-SERVICE/attractions/files/{{p?.photos[0]}}"  class="tail" alt=""title="Click to see more">
+                    </a>
+                </td>
+                
+                <td>{{p.name}}</td>
+                <td>{{p.location}}</td>
+                <td>
+                    <button type="button" class="btn btn btn-sm" [routerLink]="['/detail',p?.id]"data-bs-dismiss="modal"  (click)="refreshPageWithDelay()">
+                       <i class="fas fa-calendar-check" ></i> Reserver
+                      </button>
+                  </td>
+              </tr>
+          
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+

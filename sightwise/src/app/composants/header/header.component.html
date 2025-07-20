@@ -1,0 +1,105 @@
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <!-- Logo -->
+        <div class="logo-wrapper">
+
+            <a class="logo" href="index.html">
+                <h2> JAWLATY <span> Guide</span></h2>
+            </a>
+        </div>
+        <!-- Button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+            aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"> <span
+                class="navbar-toggler-icon"><i class="ti-menu"></i></span> </button>
+        <!-- Menu -->
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item"><a class="nav-link" routerLink="/layout" (click)="refreshPageWithDelay()">Home</a>
+                </li>
+
+               
+
+                <li class="nav-item"><a class="nav-link" routerLink="/attraction"
+                        (click)="refreshPageWithDelay()">Attraction</a></li>
+                
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/Gestion-reservation" (click)="refreshPageWithDelay()" *ngIf="isConnect()">
+                                <i class="fas fa-calendar-alt"></i> Reservation
+                            </a>
+                        </li>
+                        
+                    <li class="nav-item"><a *ngIf="!isConnect()" type="submit" class="nav-link" routerLink="/login">Sign
+                            In</a></li>
+                
+                <li class="nav-item"><a *ngIf="!isConnect()" type="submit" class="nav-link" routerLink="/register"
+                        (click="refreshPageWithDelay()" )>Sign Up</a></li>
+                <!-- <ul>
+                    <li class="nav-item"><a *ngIf="isConnect()" type="submit" class="nav-link" (click)="logout()"
+                            (click)="refreshPageWithDelay()">Sign Out</a></li>
+                </ul> -->
+
+
+              <ul>  <ul  *ngIf="isConnect()" style="position: fixed; top: 10px; right: 30px;">
+                    <li class="nav-item dropdown header-profile">
+                        <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
+                            <!-- <img src="assets/img/news/5.jpg" alt=""/> -->
+                            <img   src="http://localhost:8089/SECURITY-SERVICE/user/files/{{UserById?.image}}"alt=""/>
+                          
+                           
+
+
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <a  [routerLink]="['/profile', userConnect.id]"  class="dropdown-item ai-icon">
+                                <svg id="icon-user2" xmlns="http://www.w3.org/2000/svg" class="text-primary" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                <span class="ms-2">Profile </span>
+                            </a>
+                            <!-- <a href="email-inbox.html" class="dropdown-item ai-icon">
+                                <svg id="icon-inbox1" xmlns="http://www.w3.org/2000/svg" class="text-success" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                <span class="ms-2">Inbox </span>
+                            </a> -->
+                            <a (click)="logout()"
+                            (click)="refreshPageWithDelay()"class="dropdown-item ai-icon">
+                                <svg  xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                                <span class="ms-2">Logout </span>
+                            </a>
+                        </div>
+
+
+
+
+                    </li>
+                </ul>
+              <ul>  <ul>  <ul  *ngIf="isConnect()" style="position: fixed; top: 6px; right: 30px;">
+                    <li class="nav-item dropdown header-profile">
+                        <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
+                            <span >{{UserById?.username}}</span> 
+                            <!-- <img src="assets/img/news/5.jpg" alt=""/> -->
+                            <img   src="http://localhost:8089/SECURITY-SERVICE/user/files/{{UserById?.image}}"alt=""/>
+                          
+                           
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <a  [routerLink]="['/profile', userConnect.id]"  class="dropdown-item ai-icon">
+                                <svg id="icon-user2" xmlns="http://www.w3.org/2000/svg" class="text-primary" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                <span class="ms-2">Profile </span>
+                            </a>
+                            <!-- <a href="email-inbox.html" class="dropdown-item ai-icon">
+                                <svg id="icon-inbox1" xmlns="http://www.w3.org/2000/svg" class="text-success" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                <span class="ms-2">Inbox </span>
+                            </a> -->
+                            <a (click)="logout()"
+                            (click)="refreshPageWithDelay()"class="dropdown-item ai-icon">
+                                <svg  xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                                <span class="ms-2">Logout </span>
+                            </a>
+                        </div>
+                    </li>
+                </ul></ul></ul></ul>
+
+
+            </ul>
+        </div>
+    </div>
+</nav>

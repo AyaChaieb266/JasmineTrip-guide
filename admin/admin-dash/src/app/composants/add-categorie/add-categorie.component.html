@@ -1,0 +1,50 @@
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row page-titles">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active"><a href="javascript:void(0)"> <i class="fas fa-plus">  Nouvel
+                            Categorie </i> </a> </li>
+
+            </ol>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                          
+                            <div class="col-lg-8 order-lg-1">
+                                <h4 class="mb-3">Ajouter un Categorie <br> <br></h4>
+                                <form [formGroup]="formCategory" class="needs-validation" novalidate>
+                                    <div class="row">
+                                      <div class="col-md-6 mb-3">
+                                        <label for="firstName" class="form-label">Nom de la catégorie</label>
+                                        <input formControlName="name" type="text" class="form-control" id="firstName" placeholder="" required>
+                                        <div class="invalid-feedback">
+                                          Un nom valide est requis.
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-md-12 mb-3">
+                                        <label for="description" class="form-label">Description</label>
+                                        <textarea formControlName="description" class="form-control" id="description" placeholder="" required></textarea>
+                                        <div class="invalid-feedback">
+                                          Une description valide est requise.
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div>
+                                      <button (click)="addCategory()" class="btn btn-primary btn-lg btn-block" type="button">Enregistrer la nouvelle catégorie</button>
+                                    </div>
+                                  </form>
+                                  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

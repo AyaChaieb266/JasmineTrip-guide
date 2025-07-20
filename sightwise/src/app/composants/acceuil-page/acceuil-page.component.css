@@ -1,0 +1,59 @@
+.bt {
+    width: 100%;
+    background: #ffffff;
+    /* margin-bottom: 15px; */
+    height: 63px;
+    border-radius: 0px;
+    margin-top: 0px;
+    cursor: pointer;
+    padding: 2px;
+    font-size: 15px;
+    line-height: 28px;
+   
+    color: #222;
+}
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.btn-form1-submit {
+    display: block;
+    padding: 0;
+    border: none;
+    margin: 0;
+    width: 100%;
+    background: #aa8453;
+    color: #fff;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    text-decoration: none;
+    line-height: 62px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+     margin-left: 44px; 
+}
+
+img.tail{
+    width: 126px;
+    height: 95px;
+    border-radius: 10px;
+}
+
+
+
+
+  .selectt {
+    width: 160px;
+    max-width: 180px;
+    height: 63px;
+    padding: 0 30px;
+    border: 1px solid #adadad;
+    color: #000000;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+   
+}
+
+

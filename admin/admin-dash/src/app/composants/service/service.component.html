@@ -1,0 +1,104 @@
+<div class="content-body">
+
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Liste Services</h4>
+            </div>
+    
+    
+    
+    
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                  <a class="navbar-brand"><div class="d-flex align-items-center mb-2">
+                         
+                          
+                      </div>
+              </a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" ><div class="nav-item d-flex align-items-center">
+                          
+                      </div></a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#"><div  class="newest ms-3" >
+                          <a  class="btn btn-secondary">+ Ajouter service</a>
+                         
+                      </div></a>
+                      </li>
+                     
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+              
+              
+           
+    
+    
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-responsive-md">
+                        <thead>
+                            <tr >
+                                <th style="width:50px;">
+                                    <div class="form-check custom-checkbox checkbox-success check-lg me-3">
+                                        <input type="checkbox" class="form-check-input" id="checkAll" required="">
+                                        <label class="form-check-label" for="checkAll"></label>
+                                    </div>
+                                </th>
+                                <th><strong>ID Service</strong></th>
+                                <th><strong>Nom</strong></th>
+                                <th><strong>Logo </strong></th>
+                                <th><strong>continue</strong></th>
+                                <th><strong>prix</strong></th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                              <tr  *ngFor="let s of attractionByid.services |  paginate: { itemsPerPage: 6, currentPage: p}" > 
+                                <td>
+                                    <div class="form-check custom-checkbox checkbox-success check-lg me-3">
+                                        <input type="checkbox" class="form-check-input" id="customCheckBox2" required="">
+                                        <label class="form-check-label" for="customCheckBox2"></label>
+                                    </div>
+                                </td>
+                                <td><strong>{{s.id}}</strong></td>
+                                <td><div class="d-flex align-items-center"><img src="http://localhost:8089/CATEGORY-SERVICE/attractions/files/{{s.photos[0]}}" class="rounded-lg me-2" width="24" alt=""/> <span class="w-space-no">{{s.name}}</span></div></td>
+                                <td>{{s.name}}	</td>
+                                <td>{{s.logo}}</td>
+                                <td>{{s.content}}</td>
+    
+                                <td><div class="d-flex align-items-center"> {{s.price}}</div></td>
+                                <td>
+                                    
+                                </td>
+                              
+                                <td>
+                                    <div class="d-flex">
+                                        <a [routerLink]="['/home/update-attraction',]" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+                                        <a  class="btn btn-danger shadow btn-xs sharp me-1"><i class="fa fa-trash"></i></a>
+                                      
+    
+                                    </div>
+                                </td>
+                            </tr> 
+                            
+          
+                        </tbody>
+                    </table>
+                </div>
+                <div style="display: flex; justify-content: center;">
+                    <pagination-controls  (pageChange)="p = $event"></pagination-controls>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    </div>

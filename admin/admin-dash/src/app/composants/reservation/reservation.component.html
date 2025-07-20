@@ -1,0 +1,111 @@
+<div class="content-body">
+    <div class="container-fluid ">
+        <div class="row page-titles">
+            <ol class="breadcrumb">
+                
+                <li class="breadcrumb-item"><a href=""> Reservation List</a></li>
+            </ol>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-sm mb-0">
+                                <thead>
+                                    <tr>
+                                        <th class="align-middle"class="table-info">
+                                            <div class="form-check custom-checkbox">
+                                                <input type="checkbox" class="form-check-input" id="checkAll">
+                                                <label class="form-check-label" for="checkAll"></label>
+                                            </div>
+                                        </th>
+                                        <th class="align-middle"class="table-info"> ID</th>
+                                        <!-- <th class="align-middle"class="table-info">Description</th>
+                                        <th class="align-middle"class="table-info">Date De Reservation</th> -->
+
+                                        <th class="align-middle pe-7" class="table-info">Date de debut</th>
+                                        <th class="align-middle" class="table-info">Date de fin</th>
+                                        <th class="align-middle"class="table-info" >Status</th>
+                                        
+                                        <!-- <th class="align-middle text-end"class="table-info">prix</th> -->
+                                        <th class="align-middle text-end"class="table-info">addition</th>
+                                        <th class="align-middle text-end"class="table-info">Payment</th>
+                                        
+                                        <th class="align-middle text-end"class="table-info">action</th>
+                                        
+                                        
+                                        <th class="no-sort"></th>
+                                        
+                                       
+                                    </tr>
+                                </thead>
+                                <tbody id="orders">
+                                    <tr  *ngFor = "let r of listReservation |paginate:{itemsPerPage : 10,currentPage:p}">
+                                        <td class="py-2">
+                                            <div class="form-check custom-checkbox checkbox-success">
+                                                <input type="checkbox" class="form-check-input" id="checkbox">
+                                                <label class="form-check-label" for="checkbox"></label>
+                                            </div>
+                                        </td>
+                                       
+                                        
+                                                <td class="py-2">{{r.id}}</td>
+                                                <!-- <td class="py-2">{{r.description}}</td>
+                                        <td class="py-2">{{r.date_res}} </td> -->
+                                        <td class="py-2">{{r.date_debut}} </td>
+                                        <td class="py-2">{{r.date_fin}} </td>
+                                           
+                                       
+                                        <td class="py-2 text-end"><span class="badge badge" style="background-color: rgb(143, 126, 42); color: rgb(219, 213, 213);">{{r.status}}<span
+                                                    class="ms-1 fa fa-check"></span></span>
+                                        </td>
+                                        <!-- <td class="py-2 text-end">${{r.price}}</td> -->
+                                        <td class="py-2 text-end">${{r.addition}}</td>
+                                        <td class="py-2 text-end">{{r.payment}}</td>
+                                        
+                                     
+
+
+
+
+
+
+
+                                        <td class="py-2 text-end">
+                                            <div class="dropdown text-sans-serif"><button class="btn btn-primary tp-btn-light sharp" type="button" id="order-dropdown-0" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></span></button>
+                                                <div class="dropdown-menu dropdown-menu-end border py-0" aria-labelledby="order-dropdown-0">
+                                                    <div class="py-2"><a class="dropdown-item" type="submit" (click)="upstatus(r.id, 'APPROVED')">Approuver</a>
+                                                        <a class="dropdown-item"type="submit" (click)="upstatus(r.id, 'REFUSED')">Refuser</a>
+                                                        <a class="dropdown-item"type="submit" (click)="upstatus(r.id, 'PENDING')">En Attente</a>
+                                                        <a class="dropdown-item" type="submit">Details</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item text-danger"   type="submit">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+
+
+
+
+
+
+
+                                          
+                                        
+                                    </tr>
+                                  
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="display: flex; justify-content: center;">
+                            <pagination-controls  (pageChange)="p = $event"></pagination-controls>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

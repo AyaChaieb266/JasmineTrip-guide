@@ -1,0 +1,106 @@
+import { Component, OnInit } from '@angular/core';
+import { AttractionServiceService } from '../../services/attraction-service.service';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-layout',
+  templateUrl: './layout.component.html',
+  styleUrls: ['./layout.component.css']
+})
+export class LayoutComponent implements OnInit {
+  listAttraction:any
+  listCategory:any
+  selectedcategory:any
+  listAttractionR:any
+  p:number=1;
+  constructor(private service:AttractionServiceService,
+              private route:Router
+  ) { }
+
+  ngOnInit(): void {
+    this.getAttraction()
+    this.getCAT
+    this.getTheCategory()
+    this.getCategory()
+    this.getAttractionR()
+    this.getAttractionA()
+    
+  }
+
+  getAttraction(){
+    this.service.allAttraction().subscribe((res:any)=>{
+      this.listAttraction=res.filter((e:any)=>e.category.name=="Hotel")
+      console.log("liste des hotels ", this.listAttraction);
+ },)}
+
+ getAttractionR(){
+  this.service.allAttraction().subscribe((res:any)=>{
+    this.listAttractionR=res.filter((e:any)=>e.category.name=="Restaurant")
+    console.log("liste des restaurants ", this.listAttractionR);
+},)}
+
+ getCategory(){
+  this.service.allCategory().subscribe((res:any)=>{
+    this.listCategory=res
+    console.log("liste de category est ", this.listCategory)
+    
+
+  })
+}
+// viewAllImages(Images: any) {
+//   const lightboxImages = Images.photos.map((image: any) => ({
+//       src: `http://localhost:8089/CATEGORY-SERVICE/attractions/files/${image}`,
+//       caption: 'Attraction Images',
+//       thumb: '',
+//       width: '303px',
+//       height: '300px'
+//   }));
+//   this.lightbox.open(lightboxImages, 0, {
+//       width: '303px',
+//       height: '300px',
+//   });
+// }
+getTheCategory() {
+  this.service.allCategory().subscribe((res: any) => {
+      this.listCategory = res;
+      console.log("Liste des catégories :", this.listCategory);
+  });
+}
+getCAT(categoryId: any) {
+  if (this.selectedcategory === categoryId) {
+      // Si la sous-catégorie actuellement sélectionnée est la même que celle qui a été cliquée, désélectionnez-la
+      this.selectedcategory = null;
+      // Afficher toutes les attractions
+      this.service.allAttraction().subscribe((res: any) => {
+          this.listAttraction = res;
+          console.log('Toutes les attractions :', this.listAttraction);
+      });
+  } else {
+      // Sélectionnez la catégorie et filtrez les attractions
+      this.selectedcategory = categoryId;
+      this.service.allAttraction().subscribe((res: any) => {
+          this.listAttraction = res.filter((attraction: any) => {
+              return attraction && attraction.category && attraction.category.id === categoryId;
+          });
+          console.log('La liste des attractions filtrée :', this.listAttraction);
+      });
+  }
+}
+
+
+decouvrir(){
+  if(localStorage.getItem('state') =="0"){
+    this.route.navigateByUrl("/attraction")
+  }
+  else{
+    this.route.navigateByUrl("/login")
+  }
+}
+getAttractionA(){
+  this.service.allAttraction().subscribe((res:any)=>{
+    this.listAttraction=res
+    console.log("liste d'attraction ", this.listAttraction);
+},)}
+
+
+}
