@@ -8,20 +8,25 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-      - name:   Checkout code
+      - name: 📥 Checkout code
         uses: actions/checkout@v3
 
-      - name:   Set up Java 17
+      - name: 🧰 Set up Java 17
         uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'temurin'
-  - name: 🔓 Make mvnw executable
-    run: chmod +x mvnw
+
+      - name: 🔓 Make all mvnw executable
+        run: |
+          chmod +x springsecurity-service/mvnw
+          chmod +x category-service/mvnw
+          chmod +x comment-service/mvnw
+          chmod +x reservation-service/mvnw
+
       - name: 🔧 Build springsecurity-service
         run: cd springsecurity-service && ./mvnw clean install -DskipTests
 
@@ -34,7 +39,12 @@ jobs:
       - name: 🔧 Build reservation-service
         run: cd reservation-service && ./mvnw clean install -DskipTests
 
-      - name:  Build Angular frontend
+      - name: 🌐 Set up Node.js for Angular
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: 📦 Build Angular frontend
         run: |
           cd frontend
           npm install
