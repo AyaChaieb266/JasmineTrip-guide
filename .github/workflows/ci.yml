@@ -20,7 +20,8 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-
+  - name: 🔓 Make mvnw executable
+    run: chmod +x mvnw
       - name: 🔧 Build springsecurity-service
         run: cd springsecurity-service && ./mvnw clean install -DskipTests
 
