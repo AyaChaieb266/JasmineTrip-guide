@@ -4,9 +4,10 @@
         <div class="logo-wrapper">
 
             <a class="logo" href="index.html">
-                <h2> JAWLATY <span> Guide</span></h2>
+                <h2> JasmineTrip <span> Guide</span></h2>
             </a>
         </div>
+
         <!-- Button -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
             aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"> <span
@@ -18,20 +19,20 @@
                 <li class="nav-item"><a class="nav-link" routerLink="/layout" (click)="refreshPageWithDelay()">Home</a>
                 </li>
 
-               
+
 
                 <li class="nav-item"><a class="nav-link" routerLink="/attraction"
                         (click)="refreshPageWithDelay()">Attraction</a></li>
-                
+
                         <li class="nav-item">
                             <a class="nav-link" routerLink="/Gestion-reservation" (click)="refreshPageWithDelay()" *ngIf="isConnect()">
                                 <i class="fas fa-calendar-alt"></i> Reservation
                             </a>
                         </li>
-                        
+
                     <li class="nav-item"><a *ngIf="!isConnect()" type="submit" class="nav-link" routerLink="/login">Sign
                             In</a></li>
-                
+
                 <li class="nav-item"><a *ngIf="!isConnect()" type="submit" class="nav-link" routerLink="/register"
                         (click="refreshPageWithDelay()" )>Sign Up</a></li>
                 <!-- <ul>
@@ -45,8 +46,8 @@
                         <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
                             <!-- <img src="assets/img/news/5.jpg" alt=""/> -->
                             <img   src="http://localhost:8089/SECURITY-SERVICE/user/files/{{UserById?.image}}"alt=""/>
-                          
-                           
+
+
 
 
                         </a>
@@ -74,11 +75,11 @@
               <ul>  <ul>  <ul  *ngIf="isConnect()" style="position: fixed; top: 6px; right: 30px;">
                     <li class="nav-item dropdown header-profile">
                         <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
-                            <span >{{UserById?.username}}</span> 
+                            <span >{{UserById?.username}}</span>
                             <!-- <img src="assets/img/news/5.jpg" alt=""/> -->
                             <img   src="http://localhost:8089/SECURITY-SERVICE/user/files/{{UserById?.image}}"alt=""/>
-                          
-                           
+
+
                         </a>
                         <div class="dropdown-menu dropdown-menu-end">
                             <a  [routerLink]="['/profile', userConnect.id]"  class="dropdown-item ai-icon">

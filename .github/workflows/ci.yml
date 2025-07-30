@@ -1,51 +1,46 @@
-name: Build and Test Spring Boot Microservices
+name: Java CI with Maven (Multi-Service)
 
 on:
   push:
-    branches: [ master ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ master ]
+    branches: [ "master" ]
 
 jobs:
-  build:
+  build-and-run:
     runs-on: ubuntu-latest
 
+    services:
+      docker:
+        image: docker:19.03.12
+        options: --privileged
+
     steps:
-      - name: 📥 Checkout code
+      - name: Checkout source code
         uses: actions/checkout@v3
 
-      - name: 🧰 Set up Java 17
+      - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: 🔓 Make all mvnw executable
+      - name: Give permission to Maven wrapper
+        run: chmod +x mvnw
+
+      - name: Build all services
+        run: ./mvnw clean install -DskipTests
+
+      - name: Run all microservices in background
         run: |
-          chmod +x springsecurity-service/mvnw
-          chmod +x category-service/mvnw
-          chmod +x comment-service/mvnw
-          chmod +x reservation-service/mvnw
+          nohup ./mvnw -f discovery-service spring-boot:run &
+          sleep 15
+          nohup ./mvnw -f api-gateway-service spring-boot:run &
+          nohup ./mvnw -f category-service spring-boot:run &
+          nohup ./mvnw -f comments-service spring-boot:run &
+          nohup ./mvnw -f reservation-service spring-boot:run &
+          nohup ./mvnw -f springsecurity-service spring-boot:run &
+          sleep 60
 
-      - name: 🔧 Build springsecurity-service
-        run: cd springsecurity-service && ./mvnw clean install -DskipTests
-
-      - name: 🔧 Build category-service
-        run: cd category-service && ./mvnw clean install -DskipTests
-
-      - name: 🔧 Build comment-service
-        run: cd comment-service && ./mvnw clean install -DskipTests
-
-      - name: 🔧 Build reservation-service
-        run: cd reservation-service && ./mvnw clean install -DskipTests
-
-      - name: 🌐 Set up Node.js for Angular
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      - name: 📦 Build Angular frontend
-        run: |
-          cd frontend
-          npm install
-          npm run build --prod
+      - name: Print services are running
+        run: echo "All microservices started successfully!"

@@ -35,7 +35,7 @@
         padding: 0.375rem 1rem;
         font-size: 0.975rem;
         margin-left: 10px;
-        
+
     }
     .navbar .dropdown-menu .dropdown-item span {
         display: block;
@@ -49,3 +49,31 @@
     ul.pos{
         margin-left: 30px;
     }
+.navbar .nav-link {
+  font-size: 18px;              /* Bigger font */
+  font-weight: 600;             /* Bolder */
+  color: #ffffff !important;    /* Pure white */
+  text-transform: uppercase;    /* Optional: ALL CAPS */
+  letter-spacing: 1px;          /* Spaced out for elegance */
+  transition: color 0.3s;
+}
+
+.navbar .nav-link:hover {
+  color: #d4af37 !important;    /* Golden on hover */
+}
+
+.logo-wrapper h2 {
+  font-size: 40px;
+  font-family: 'Cinzel', serif;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.logo-wrapper h2 span {
+  font-size: 15px;
+  color: #d4af37;  /* Real gold tone */
+  font-family: 'Cinzel', serif;
+}
+
+

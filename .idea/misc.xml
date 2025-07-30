@@ -7,9 +7,9 @@
         <option value="$PROJECT_DIR$/Backend-AppGuideTouristique/api-gateway-service/pom.xml" />
         <option value="$PROJECT_DIR$/Backend-AppGuideTouristique/category-service/pom.xml" />
         <option value="$PROJECT_DIR$/Backend-AppGuideTouristique/comments-service/pom.xml" />
-        <option value="$PROJECT_DIR$/Backend-AppGuideTouristique/discovery-service/pom.xml" />
         <option value="$PROJECT_DIR$/Backend-AppGuideTouristique/reservation-service/pom.xml" />
         <option value="$PROJECT_DIR$/springsecurity-service/pom.xml" />
+        <option value="$PROJECT_DIR$/Backend-AppGuideTouristique/discovery-service/pom.xml" />
       </list>
     </option>
   </component>
