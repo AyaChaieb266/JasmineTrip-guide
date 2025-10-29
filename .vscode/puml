@@ -1,0 +1,46 @@
+@startuml
+title Use Case Diagram: Sprint 2
+skinparam backgroundColor white
+skinparam actorStyle stickman
+skinparam usecase {
+  BackgroundColor white
+  BorderColor black
+  FontColor black
+}
+skinparam rectangle {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam arrow {
+  Color black
+  Thickness 1
+}
+left to right direction
+
+actor "User" as User
+actor "Administrator" as Admin
+
+rectangle "Touristic Guide Application" {
+  (View list of categories) as UC_ViewCat
+  (View list of attractions and details) as UC_ViewAttr
+  (Manage categories) as UC_ManCat
+  (Manage attractions) as UC_ManAttr
+  (Manage services) as UC_ManServ
+  (Authentication) as UC_Auth
+}
+
+'--- position hints to keep things straight
+User -right-> UC_ViewCat
+User -down-> UC_ViewAttr
+User -right-> UC_Auth
+
+Admin -left-> UC_ManCat
+Admin -up-> UC_ManAttr
+Admin -up-> UC_ManServ
+Admin -left-> UC_Auth
+
+UC_ManCat ..> UC_Auth : <<include>>
+UC_ManAttr ..> UC_Auth : <<include>>
+UC_ManServ ..> UC_Auth : <<include>>
+
+@enduml
