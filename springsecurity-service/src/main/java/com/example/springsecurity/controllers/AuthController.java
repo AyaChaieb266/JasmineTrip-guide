@@ -8,7 +8,6 @@ import com.example.springsecurity.payload.request.VerificationRequest;
 import com.example.springsecurity.security.services.UserDetailsServiceImpl;
 import com.example.springsecurity.services.Userservice;
 import com.example.springsecurity.utils.EmailService;
-import com.example.springsecurity.utils.SmsService;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import jakarta.servlet.http.HttpServletRequest;
@@ -55,8 +54,6 @@ public class AuthController {
   @Autowired
   PasswordEncoder encoder;
 
-  @Autowired
-  private SmsService smsservice;
 
   @Autowired
   JwtUtils jwtUtils;
@@ -528,7 +525,7 @@ public HashMap<String,String> forgetpassword(  String email) throws MessagingExc
   String phoneNumber = userexisting.getPhoneNumber(); // Numéro de téléphone de l'utilisateur
   String resetCode = userexisting.getPasswordResetToken();
 
-  smsservice.sendSMS(phoneNumber, resetCode);
+
   String from ="admin@gmail.com" ;
   String to = userexisting.getEmail();
   MimeMessage messagee = emailSender.createMimeMessage();
@@ -568,8 +565,7 @@ public ResponseEntity<?> authenticateUsers(@Valid @RequestBody LoginRequest logi
       // Génération d'un code aléatoire à 6 chiffres
       String verificationCode = generateVerificationCode();
 
-      // Envoi du code par SMS (utilisation de Twilio ou autre service)
-      smsservice.sendSMS(userOptional.get().getPhoneNumber(), verificationCode);
+
 
       // Enregistrement du code dans la base de données (à des fins de vérification ultérieure)
       userOptional.get().setVerificationCode(verificationCode);

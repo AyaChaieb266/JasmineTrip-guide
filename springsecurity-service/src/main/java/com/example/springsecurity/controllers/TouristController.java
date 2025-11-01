@@ -13,7 +13,7 @@ import com.example.springsecurity.security.services.UserDetailsServiceImpl;
 import com.example.springsecurity.services.TouristService;
 import com.example.springsecurity.services.Userservice;
 import com.example.springsecurity.utils.EmailService;
-import com.example.springsecurity.utils.SmsService;
+
 import com.example.springsecurity.utils.StorageService;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
@@ -41,8 +41,7 @@ import java.util.*;
 public class TouristController {
     @Autowired
     PasswordEncoder encoder;
-    @Autowired
-    private SmsService smsservice;
+
     @Autowired
     UserDetailsServiceImpl userDetailsService;
     @Autowired
