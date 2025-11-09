@@ -1,85 +1,133 @@
 <div class="content-body">
-    <div class="container-fluid">
-        
-        <div class="row page-titles">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item active"><a href="javascript:void(0)">List Profile Tourist</a></li>
-                
-            </ol>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-sm mb-0 table-striped">
-                                <thead>
-                                    <tr>
-                                        <th class=" pe-3">
-                                            <div class="form-check custom-checkbox mx-2">
-                                                <input type="checkbox" class="form-check-input" id="checkAll">
-                                                <label class="form-check-label" for="checkAll"></label>
-                                            </div>
-                                        </th>
-                                        <th>ID</th>
-                                        <th>UserName</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th >Address  </th>
-                                        <th >fidelité  </th>
-                                        <th>Action</th>
-                                        
-                                    </tr>
-                                </thead>
-                                <tbody id="customers">
-                                    <tr class="btn-reveal-trigger" *ngFor="let t of listProfile |paginate: { itemsPerPage: 10, currentPage: p}">
-                                        <td class="py-2">
-                                            <div class="form-check custom-checkbox mx-2">
-                                                <input type="checkbox" class="form-check-input" id="checkbox1">
-                                                <label class="form-check-label" for="checkbox1"></label>
-                                            </div>
-                                        </td>
+  <div class="container-fluid">
+    <!-- Page Title -->
+    <div class="row page-titles">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active">
+          <a href="javascript:void(0)">Tourist Profile List</a>
+        </li>
+      </ol>
+    </div>
 
-                                        <td class="py-2"><a
-                                            href="mailto:ricky@example.com">{{t.id}}</a></td>
-                                        <td class="py-3">
-                                            <a href="#">
-                                                <div class="media d-flex align-items-center">
-                                                    <div class="avatar avatar-xl me-2">
-                                                        <div class=""><img class="rounded-circle img-fluid"
-                                                                src="http://localhost:8089/SECURITY-SERVICE/tourists/file/{{t.photo}}" width="30" alt="" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <h5 class="mb-0 fs--1">{{t.username}}</h5>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </td>
-                                        <td class="py-2"><a
-                                                href="mailto:ricky@example.com">{{t.email}}</a></td>
-                                        <td class="py-2"> <a href="tel:2012001851">{{t.phoneNumber}}</a></td>
-                                        <td class="py-2 ps-5">{{t.addresse}}</td>
-                                        <td class="py-2">{{t.reservation.length}}</td>
-                                        <td class="py-2 text-end">
-                                            <div class="dropdown"><button class="btn btn-primary tp-btn-light sharp" type="button" data-bs-toggle="dropdown"><span class="fs--1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></span></button>
-                                                <div class="dropdown-menu dropdown-menu-end border py-0">
-                                                    <div class="py-2"><a class="dropdown-item" (click)="deleteProfileTourist(t.id)">Delete</a><a class="dropdown-item text-danger" href="#!">Details</a></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    
-                                </tbody>
-                            </table>
+    <!-- Table Section -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card shadow-sm border-0">
+          <div class="card-header bg-light d-flex justify-content-between align-items-center">
+            <h5 class="mb-0 text-primary">
+              <i class="fa fa-users me-2"></i>All Tourists
+            </h5>
+            <small class="text-muted">tourist profiles</small>
+          </div>
+
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                  <tr>
+                    <th>
+                      <div class="form-check custom-checkbox mx-2">
+                        <input type="checkbox" class="form-check-input" id="checkAll" />
+                        <label class="form-check-label" for="checkAll"></label>
+                      </div>
+                    </th>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>Reservations</th>
+                    <th class="text-center">Actions</th>
+                  </tr>
+                </thead>
+
+                <tbody id="customers">
+                  <tr
+                    *ngFor="let t of listProfile | paginate: { itemsPerPage: 10, currentPage: p }"
+                    class="table-row"
+                  >
+                    <td>
+                      <div class="form-check custom-checkbox mx-2">
+                        <input type="checkbox" class="form-check-input" id="checkbox-{{ t.id }}" />
+                        <label class="form-check-label" for="checkbox-{{ t.id }}"></label>
+                      </div>
+                    </td>
+
+                    <td>{{ t.id }}</td>
+
+                    <!-- Avatar + Username -->
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <img
+                          class="rounded-circle me-3 shadow-sm"
+                          [src]="
+                            t.image
+                              ? 'http://localhost:8089/SECURITY-SERVICE/tourists/file/' + t.image
+                              : 'assets/images/default-user.png'
+                          "
+                          alt="{{ t.username }}"
+                          width="45"
+                          height="45"
+                        />
+                        <div>
+                          <h6 class="mb-0 fw-semibold">{{ t.username }}</h6>
+                          <small class="text-muted">Tourist</small>
                         </div>
-                    </div>
-                </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <a [href]="'mailto:' + t.email" class="text-decoration-none text-dark">
+                        {{ t.email }}
+                      </a>
+                    </td>
+
+                    <td>
+                      <a [href]="'tel:' + t.phoneNumber" class="text-decoration-none text-dark">
+                        {{ t.phoneNumber }}
+                      </a>
+                    </td>
+
+                    <td>{{ t.addresse }}</td>
+                    <td>{{ t.reservation?.length || 0 }}</td>
+
+                    <!-- Actions Dropdown -->
+                    <td class="text-center">
+                      <div class="dropdown">
+                        <button
+                          class="btn btn-outline-secondary btn-sm dropdown-toggle"
+                          type="button"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                        >
+                          <i class="fa fa-ellipsis-v"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0">
+                          <li>
+                            <a class="dropdown-item text-danger" (click)="deleteProfileTourist(t.id)">
+                              <i class="fa fa-trash me-2"></i>Delete
+                            </a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item text-info" href="#">
+                              <i class="fa fa-info-circle me-2"></i>Details
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
 
+            <!-- Pagination -->
+            <div class="d-flex justify-content-center mt-4">
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-    <div style="display: flex; justify-content: center;">
-        <pagination-controls  (pageChange)="p = $event"></pagination-controls>
-    </div>
+  </div>
 </div>

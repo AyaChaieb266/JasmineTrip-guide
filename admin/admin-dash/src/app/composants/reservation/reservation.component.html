@@ -1,111 +1,134 @@
 <div class="content-body">
-    <div class="container-fluid ">
-        <div class="row page-titles">
-            <ol class="breadcrumb">
-                
-                <li class="breadcrumb-item"><a href=""> Reservation List</a></li>
-            </ol>
-        </div>
-        
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-sm mb-0">
-                                <thead>
-                                    <tr>
-                                        <th class="align-middle"class="table-info">
-                                            <div class="form-check custom-checkbox">
-                                                <input type="checkbox" class="form-check-input" id="checkAll">
-                                                <label class="form-check-label" for="checkAll"></label>
-                                            </div>
-                                        </th>
-                                        <th class="align-middle"class="table-info"> ID</th>
-                                        <!-- <th class="align-middle"class="table-info">Description</th>
-                                        <th class="align-middle"class="table-info">Date De Reservation</th> -->
-
-                                        <th class="align-middle pe-7" class="table-info">Date de debut</th>
-                                        <th class="align-middle" class="table-info">Date de fin</th>
-                                        <th class="align-middle"class="table-info" >Status</th>
-                                        
-                                        <!-- <th class="align-middle text-end"class="table-info">prix</th> -->
-                                        <th class="align-middle text-end"class="table-info">addition</th>
-                                        <th class="align-middle text-end"class="table-info">Payment</th>
-                                        
-                                        <th class="align-middle text-end"class="table-info">action</th>
-                                        
-                                        
-                                        <th class="no-sort"></th>
-                                        
-                                       
-                                    </tr>
-                                </thead>
-                                <tbody id="orders">
-                                    <tr  *ngFor = "let r of listReservation |paginate:{itemsPerPage : 10,currentPage:p}">
-                                        <td class="py-2">
-                                            <div class="form-check custom-checkbox checkbox-success">
-                                                <input type="checkbox" class="form-check-input" id="checkbox">
-                                                <label class="form-check-label" for="checkbox"></label>
-                                            </div>
-                                        </td>
-                                       
-                                        
-                                                <td class="py-2">{{r.id}}</td>
-                                                <!-- <td class="py-2">{{r.description}}</td>
-                                        <td class="py-2">{{r.date_res}} </td> -->
-                                        <td class="py-2">{{r.date_debut}} </td>
-                                        <td class="py-2">{{r.date_fin}} </td>
-                                           
-                                       
-                                        <td class="py-2 text-end"><span class="badge badge" style="background-color: rgb(143, 126, 42); color: rgb(219, 213, 213);">{{r.status}}<span
-                                                    class="ms-1 fa fa-check"></span></span>
-                                        </td>
-                                        <!-- <td class="py-2 text-end">${{r.price}}</td> -->
-                                        <td class="py-2 text-end">${{r.addition}}</td>
-                                        <td class="py-2 text-end">{{r.payment}}</td>
-                                        
-                                     
-
-
-
-
-
-
-
-                                        <td class="py-2 text-end">
-                                            <div class="dropdown text-sans-serif"><button class="btn btn-primary tp-btn-light sharp" type="button" id="order-dropdown-0" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></span></button>
-                                                <div class="dropdown-menu dropdown-menu-end border py-0" aria-labelledby="order-dropdown-0">
-                                                    <div class="py-2"><a class="dropdown-item" type="submit" (click)="upstatus(r.id, 'APPROVED')">Approuver</a>
-                                                        <a class="dropdown-item"type="submit" (click)="upstatus(r.id, 'REFUSED')">Refuser</a>
-                                                        <a class="dropdown-item"type="submit" (click)="upstatus(r.id, 'PENDING')">En Attente</a>
-                                                        <a class="dropdown-item" type="submit">Details</a>
-                                                        <div class="dropdown-divider"></div>
-                                                        <a class="dropdown-item text-danger"   type="submit">Delete</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-
-
-
-
-
-
-
-                                          
-                                        
-                                    </tr>
-                                  
-                                </tbody>
-                            </table>
-                        </div>
-                        <div style="display: flex; justify-content: center;">
-                            <pagination-controls  (pageChange)="p = $event"></pagination-controls>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="container-fluid">
+    <!-- Page title -->
+    <div class="row page-titles">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active">
+          <a href="#">Reservation Management</a>
+        </li>
+      </ol>
     </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card shadow-sm border-0 rounded-3">
+          <div class="card-body">
+            <h4 class="card-title mb-4 text-center fw-semibold text-uppercase" style="color:#8f7e2a;">
+              Reservation List
+            </h4>
+
+            <div class="table-responsive">
+              <table class="table table-hover align-middle text-center">
+                <thead class="table-light">
+                  <tr>
+                    <th>
+                      <div class="form-check custom-checkbox">
+                        <input type="checkbox" class="form-check-input" id="checkAll">
+                      </div>
+                    </th>
+                    <th>ID</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                    <th>Payment</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr *ngFor="let r of listReservation | paginate: { itemsPerPage: 10, currentPage: p }">
+                    <td>
+                      <input type="checkbox" class="form-check-input">
+                    </td>
+
+                    <td>{{ r.id }}</td>
+
+                    <!-- Date columns -->
+                    <td>
+                      <span class="badge bg-light text-dark px-2 py-1">
+                        {{ r.date_debut | date: 'yyyy-MM-dd' }}
+                      </span>
+                    </td>
+                    <td>
+                      <span class="badge bg-light text-dark px-2 py-1">
+                        {{ r.date_fin | date: 'yyyy-MM-dd' }}
+                      </span>
+                    </td>
+
+                    <!-- Status -->
+                    <td>
+                      <span class="badge rounded-pill text-uppercase px-3 py-2"
+                        [ngClass]="{
+                          'bg-warning text-dark': r.status === 'PENDING',
+                          'bg-success': r.status === 'APPROVED',
+                          'bg-danger': r.status === 'REFUSED'
+                        }">
+                        {{ r.status }}
+                      </span>
+                    </td>
+
+                    <!-- Prices -->
+                    <td>${{ r.addition }}</td>
+                    <td>
+                      <span [ngClass]="{ 'text-success fw-bold': r.payment, 'text-danger': !r.payment }">
+                        {{ r.payment ? 'Paid' : 'Unpaid' }}
+                      </span>
+                    </td>
+
+                    <!-- Dropdown actions -->
+                    <td>
+                      <div class="dropdown">
+                        <button
+                          class="btn btn-light border-0 shadow-sm dropdown-toggle"
+                          type="button"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                        >
+                          <i class="fa fa-ellipsis-v text-secondary"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                          <li>
+                            <a class="dropdown-item text-success" (click)="upstatus(r.id, 'APPROVED')">
+                              <i class="fa fa-check-circle me-2"></i>Approve
+                            </a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item text-danger" (click)="upstatus(r.id, 'REFUSED')">
+                              <i class="fa fa-times-circle me-2"></i>Refuse
+                            </a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item text-warning" (click)="upstatus(r.id, 'PENDING')">
+                              <i class="fa fa-hourglass-half me-2"></i>Set Pending
+                            </a>
+                          </li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li>
+                            <a class="dropdown-item text-info" type="submit">
+                              <i class="fa fa-info-circle me-2"></i>Details
+                            </a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item text-danger" type="submit">
+                              <i class="fa fa-trash me-2"></i>Delete
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="d-flex justify-content-center mt-3">
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

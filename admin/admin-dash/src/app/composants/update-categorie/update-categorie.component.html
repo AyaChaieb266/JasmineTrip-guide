@@ -1,50 +1,75 @@
 <div class="content-body">
-    <div class="container-fluid">
-        <div class="row page-titles">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item active"><a href="javascript:void(0)"> <i class="fas fa-plus"> Modifier la Categorie 
-                             </i> </a> </li>
-
-            </ol>
-        </div>
-
-        <div class="row">
-            <div class="col-xl-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                          
-                            <div class="col-lg-8 order-lg-1">
-                                <h4 class="mb-3">Merci d'enregistrer les modification<br> <br></h4>
-                                <form [formGroup]="formCategory" class="needs-validation" novalidate>
-                                    <div class="row">
-                                      <div class="col-md-6 mb-3">
-                                        <label for="firstName" class="form-label">Nom de la catégorie</label>
-                                        <input formControlName="name" type="text" class="form-control" id="firstName" placeholder="" required>
-                                        <div class="invalid-feedback">
-                                          Un nom valide est requis.
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="col-md-12 mb-3">
-                                        <label for="description" class="form-label">Description</label>
-                                        <textarea formControlName="description" class="form-control" id="description" placeholder="" required></textarea>
-                                        <div class="invalid-feedback">
-                                          Une description valide est requise.
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div>
-                                      <button (click)="updateCategory()" class="btn btn-primary btn-lg btn-block" type="button">Enregistrer</button>
-                                    </div>
-                                  </form>
-                                  
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="container-fluid">
+    <div class="row page-titles">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active">
+          <a href="javascript:void(0)">
+            <i class="fas fa-plus"></i> Edit Category
+          </a>
+        </li>
+      </ol>
     </div>
+
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-8 order-lg-1">
+                <h4 class="mb-3">
+                  Please save your modifications<br><br>
+                </h4>
+
+                <form [formGroup]="formCategory" class="needs-validation" novalidate>
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="categoryName" class="form-label">Category Name</label>
+                      <input
+                        formControlName="name"
+                        type="text"
+                        class="form-control"
+                        id="categoryName"
+                        placeholder="Enter category name"
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        A valid name is required.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12 mb-3">
+                      <label for="description" class="form-label">Description</label>
+                      <textarea
+                        formControlName="description"
+                        class="form-control"
+                        id="description"
+                        placeholder="Enter description"
+                        required
+                      ></textarea>
+                      <div class="invalid-feedback">
+                        A valid description is required.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <button
+                      (click)="updateCategory()"
+                      class="btn btn-primary btn-lg btn-block"
+                      type="button"
+                    >
+                      Save
+                    </button>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -61,11 +61,11 @@
     </div>
     <!-- slider reservation -->
     <div class="reservation">
-        <a href="tel:56888777">
+        <a href="tel:+21626262626">
             <div class="icon d-flex justify-content-center align-items-center">
                 <i class="flaticon-call"></i>
             </div>
-            <div class="call"><span>56888777</span> <br>Reservation</div>
+            <div class="call"><span>+2162626262626</span> <br>Reservation</div>
         </a>
     </div>
 </header>
@@ -97,8 +97,8 @@
                         <label> category </label>
                         <div class="select1_inner">
                             <select class="bt selectt" (change)="getCAT($event)" >
-                              <option value=""  disabled selected>Select categorie</option>
-                              <option value="All Categories" >Tout Categories</option>
+                              <option value=""  disabled selected>Categories</option>
+                              <option value="All Categories" >All Categories</option>
                               <option class="h" *ngFor="let c of listCategory" [value]="c.name">{{ c.name }}</option>
                             </select>
                           </div>
@@ -150,7 +150,7 @@
                 <td>{{p.location}}</td>
                 <td>
                     <button type="button" class="btn btn btn-sm" [routerLink]="['/detail',p?.id]"data-bs-dismiss="modal"  (click)="refreshPageWithDelay()">
-                       <i class="fas fa-calendar-check" ></i> Reserver
+                       <i class="fas fa-calendar-check" ></i> Reserve
                       </button>
                   </td>
               </tr>

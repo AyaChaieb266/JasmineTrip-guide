@@ -1,141 +1,126 @@
-
-
-<div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="3" data-background="assets/img/slider/5.jpg">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-left caption mt-90">
-              <br><br><br>
-
-                <h1> Modifier ton profil </h1>
-            </div>
-        </div>
+<!-- ====== HEADER / BANNER ====== -->
+<div
+  class="banner-header section-padding valign bg-img bg-fixed"
+  data-overlay-dark="4"
+  style="background-image: url('assets/img/slider/11.jpg'); background-size: cover; background-position: center;"
+>
+  <div class="container text-center text-white">
+    <div class="row">
+      <div class="col-md-12 caption mt-5">
+        <h1 class="display-5 fw-bold">Update Your Profile</h1>
+        <p class="lead">Keep your information up to date ✨</p>
+      </div>
     </div>
+  </div>
 </div>
 
+<!-- ====== UPDATE PROFILE FORM ====== -->
+<section class="update-profile section-padding d-flex justify-content-center align-items-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 card p-5 shadow-lg update-card">
+        <h3 class="text-center mb-4 title">Edit Profile Information</h3>
 
-<section class="contact section-padding d-flex justify-content-center align-items-center">
-    <div class="container">
-
-
-  
-  
-
-
-
-
-
-    <div class="row mb-90"  >
-     
-      <div class="col-md-8 mb-30 offset-md-3">
-        <h3>Modifier les coordonnée du Profile</h3>
-        <form  [formGroup]="formUpdate"  class="contact__form" >
-
+        <form [formGroup]="formUpdate" class="contact__form">
           <div class="row">
-            <div class="col-12">
-              <div class="alert alert-success contact__msg" style="display: none" role="alert"> Your message was sent successfully. </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-6 form-group">
-              <input formControlName="email" name="email" type="email"  required
-                     id="email" placeholder="example@gmail.com *" value="" required="">
-              <div class="invalid-feedback">
-                Valid email is required.
-              </div>
-
+            <div class="col-md-6 form-group mb-4">
+              <label>Email</label>
+              <input
+                formControlName="email"
+                name="email"
+                type="email"
+                id="email"
+                class="form-control rounded-pill"
+                placeholder="example@gmail.com *"
+                required
+              />
             </div>
 
-
-
-            <div class="col-md-6 form-group">
-              <input formControlName="username" name="username" type="text" placeholder="Your name *"
-                     required="" id="username">
-              <div class="invalid-feedback">
-                Valid username is required.
-              </div>
+            <div class="col-md-6 form-group mb-4">
+              <label>Full Name</label>
+              <input
+                formControlName="username"
+                name="username"
+                type="text"
+                id="username"
+                class="form-control rounded-pill"
+                placeholder="Your full name *"
+                required
+              />
             </div>
 
-
-            <div class="col-md-6 form-group">
-              <input formControlName="phoneNumber" name="phoneNumber" type="text" placeholder="Your Phone Number *" required
-                     id="phoneNumber"  value="" required="">
-              <div class="invalid-feedback">
-                Valid phoneNumber is required.
-              </div>
+            <div class="col-md-6 form-group mb-4">
+              <label>Phone Number</label>
+              <input
+                formControlName="phoneNumber"
+                name="phoneNumber"
+                type="text"
+                id="phoneNumber"
+                class="form-control rounded-pill"
+                placeholder="+216 00 000 000"
+                required
+              />
             </div>
 
-
-            <div class="col-md-6 form-group">
-              <input formControlName="addresse" name="addresse" type="text" placeholder="Adresse*" id="addresse"
-                     value="" required="">
-              <div class="invalid-feedback">
-                Valid addresse is required.
-              </div>
+            <div class="col-md-6 form-group mb-4">
+              <label>Address</label>
+              <input
+                formControlName="addresse"
+                name="addresse"
+                type="text"
+                id="addresse"
+                class="form-control rounded-pill"
+                placeholder="City, Country"
+                required
+              />
             </div>
 
-
-            <div class="col-md-6 form-group">
-              <input formControlName="passport_num" name="passport_num" type="text" placeholder="passport_num"
-                     id="passport_num"  value="" required="">
-              <div class="invalid-feedback">
-                Valid nationnality is required.
-              </div>
+            <div class="col-md-6 form-group mb-4">
+              <label>Passport Number</label>
+              <input
+                formControlName="passport_num"
+                name="passport_num"
+                type="text"
+                id="passport_num"
+                class="form-control rounded-pill"
+                placeholder="Passport number *"
+                required
+              />
             </div>
 
-
-            <div  class="col-md-6 form-group">
-              <input  formControlName="password" name="password" type="password" placeholder="password *" required
-                      id="password"  value="" required="">
-              <div class="invalid-feedback">
-                Valid password is required.
-              </div>
+            <div class="col-md-6 form-group mb-4">
+              <label>Password</label>
+              <input
+                formControlName="password"
+                name="password"
+                type="password"
+                id="password"
+                class="form-control rounded-pill"
+                placeholder="New password *"
+                required
+              />
             </div>
 
-            <div class="col-md-6 form-group">
-              <input  class="form-control" name="file" type="file" accept="image/*" required=""
-                      (change)="handleFileInput($event)" >
+            <div class="col-md-12 form-group mb-4">
+              <label>Profile Picture</label>
+              <input
+                class="form-control rounded-pill"
+                name="file"
+                type="file"
+                accept="image/*"
+                (change)="handleFileInput($event)"
+                required
+              />
             </div>
 
-            <div class="col-md-12 text-center" >
-              <button  (click)="Register()"  type="submit" class="butn-dark2" ><span> Modifier</span></button>
+            <div class="col-md-12 text-center mt-3">
+              <button (click)="Register()" type="submit" class="btn-update">
+                <span>Save Changes</span>
+              </button>
             </div>
           </div>
         </form>
       </div>
     </div>
-
-
-
   </div>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

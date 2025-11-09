@@ -56,13 +56,13 @@ public class TouristController {
 
     final RoleRepository roleRepository;
 
-   final JwtUtils jwtUtils;
+    final JwtUtils jwtUtils;
 
 
     final  RefreshTokenService refreshTokenService;
 
 
-   final EmailService emailService;
+    final EmailService emailService;
 
     final TouristService touristService;
     final StorageService storageService;
@@ -80,7 +80,7 @@ public class TouristController {
                              RefreshTokenService refreshTokenService
 
 
-                            ) {
+    ) {
         this.touristService = touristService;
         this.storageService = storageService;
         this.reservationRestClient = reservationRestClient;
@@ -188,9 +188,9 @@ public class TouristController {
         Set<String> strRoles = signUpRequest.getRole();
         Set<Role> roles = new HashSet<>();
 
-                        Role touristRole = roleRepository.findByName(ERole.ROLE_TOURIST)
-                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-                        roles.add(touristRole);
+        Role touristRole = roleRepository.findByName(ERole.ROLE_TOURIST)
+                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+        roles.add(touristRole);
 
         String img = storageService.store(file);
         tourist.setImage(img);
@@ -208,9 +208,9 @@ public class TouristController {
         helper.setSubject("Complete Registration!");
         helper.setFrom(from);
         helper.setTo(to);
-        helper.setText("<HTML><body> <a href=\"http://localhost:8089/SECURITY-SERVICE/auth/confirrm?email="
-        +signUpRequest.getEmail()+"\">VERIFY</a></body></HTML>",true);
-       // helper.setText("votre code de confirmation est :"+signUpRequest.getEmail());
+        helper.setText("<HTML><body> <a href=\"http://localhost:8089/SECURITY-SERVICE/auth/confirm?email="
+                +signUpRequest.getEmail()+"\">VERIFY</a></body></HTML>",true);
+        // helper.setText("votre code de confirmation est :"+signUpRequest.getEmail());
         emailSender.send(message);
 
         return ResponseEntity.ok(new MessageResponse("Tourist registered successfully! check your email for confirmation"));

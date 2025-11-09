@@ -1,0 +1,32 @@
+.table-row:hover {
+  background-color: #f9f1ec;
+  transition: 0.3s ease;
+}
+
+.table th {
+  color: #7b5541;
+  font-weight: 600;
+}
+
+.card-header {
+  background: linear-gradient(90deg, #f8ede6, #f0d7c4);
+  border-bottom: 1px solid #e6cbb9;
+}
+
+.btn-outline-secondary {
+  border-radius: 50%;
+}
+
+.dropdown-item {
+  font-size: 14px;
+  padding: 8px 15px;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f1ed;
+  color: #9c6a5e;
+}
+
+img.rounded-circle {
+  object-fit: cover;
+}

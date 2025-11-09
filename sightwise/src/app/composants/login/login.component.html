@@ -1,55 +1,50 @@
-<section class="comming section-padding">
-    <div class="v-middle">
-        <div class="container">
-            <div class="row text-center mb-30">
-                <div class="col-md-12">
-                    <h2>Sign In</h2>
-                  
-                </div>
-            </div>
-           
-            <div class="row text-center">
-                <div class="offset-md-4 col-md-4">
-                    <p>Sign in for our latest news & articles.</p>
-                    <form [formGroup]="formLogin">
-                        <input formControlName="username" type="username" class="form-control"  name="username" placeholder="username" required
-                        id="username"  value="" >
-                                        <div class="invalid-feedback">
-                                            Valid username is required.
-                                        </div>
-                        
-                    </form>
-                    <form [formGroup]="formLogin">
-                        <input formControlName="password" type="password" class="form-control"  name="password" placeholder="password" required
-                        id="password"  value="" >
-                                        <div class="invalid-feedback">
-                                            Valid password is required.
-                                        </div>
-                        
-                        
-                    </form>
-                    <div class="col-md-12">
-                       <div class="row">
-                        <div class="col-md-6"> 
-                            <button  (click)="login()" type="submit" class="butn-dark2"><span>Sign In</span></button>
-                        </div> 
-                        <div class="col-md-6">
-                            <button  routerLink="/register"   type="submit" class="butn-dark2" (click)="refreshPageWithDelay()" ><span>Sign up</span></button></div>
-                        </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 text-center">
-                                <a routerLink="/forget-password" class="forgot-password">Forgot Password ??</a>
-                            </div>
-                        </div>
-                </div>
-            </div>
-            <!-- <div class="row text-center">
-                <div class="go-back col-md-12">
-                    <a href='index.html'> <span><i class="ti-arrow-left" aria-hidden="true"></i>
-                    </span>&nbsp; Back To Home </a>
-                </div>
-            </div> -->
+<section class="login-section">
+  <div class="login-container">
+    <div class="login-card">
+      <h2 class="title">Welcome Back 🌸</h2>
+      <p class="subtitle">Sign in to your JasmineTrip Admin Dashboard</p>
+
+      <form [formGroup]="formLogin" (ngSubmit)="login()" class="form-content">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            formControlName="username"
+            type="text"
+            id="username"
+            placeholder="Enter your username"
+            required
+          />
+          <div class="invalid-feedback">Valid username is required.</div>
         </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            formControlName="password"
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            required
+          />
+          <div class="invalid-feedback">Valid password is required.</div>
+        </div>
+
+        <div class="form-options">
+          <label><input type="checkbox" /> Remember me</label>
+          <a routerLink="/forget-password" class="forgot-link"
+            >Forgot password?</a
+          >
+        </div>
+
+        <button type="submit" class="btn-login">
+          <span>Sign In</span>
+        </button>
+
+        <p class="signup-text">
+          Don't have an account?
+          <a routerLink="/register" (click)="refreshPageWithDelay()">Sign up</a>
+        </p>
+      </form>
     </div>
+  </div>
 </section>

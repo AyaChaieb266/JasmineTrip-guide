@@ -1,0 +1,14 @@
+.header-profile img {
+  object-fit: cover;
+  transition: 0.3s ease;
+}
+
+.header-profile img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 10px rgba(205, 164, 143, 0.5);
+}
+
+.dropdown-menu {
+  min-width: 180px;
+  border-radius: 10px;
+}

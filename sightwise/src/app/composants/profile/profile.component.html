@@ -1,36 +1,43 @@
-
-
-<body>
-    
-<br><br><br>
-<div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
-    <div class="card p-4">
-        <div class=" image d-flex flex-column justify-content-center align-items-center"> <button
-                class="btn btn-secondary"> <img src="http://localhost:8089/SECURITY-SERVICE/user/files/{{UserById?.image}}" height="100"
-                    width="100" /></button> <span class="name mt-3">Profil</span> <span
-                class="idd">{{UserById?.username}}</span>
-                <p>@ email: {{UserById?.email}}</p>
-                <p>Téléphone: {{UserById?.phoneNumber}}</p>
-                <p>Addresse: {{UserById?.addresse}}</p>
-             
-            <!-- <div class="d-flex flex-row justify-content-center align-items-center gap-2"> <span
-                    class="idd1">{{UserById.email}}</span> <span><i class="fa fa-copy"></i></span>
-                 </div> -->
-            <div class="d-flex flex-row justify-content-center align-items-center mt-3"> <span class="number"> <span
-                        class="follow"></span></span> </div>
-            <div class=" d-flex mt-2"> <button  [routerLink]="['/update-profile', UserById?.id]"  class="btn-edit" (click)="refreshPageWithDelay()" >Modifier Profile</button> </div>
-            <div class="text mt-3"> <span>
-                    <br><br> </span> </div>
-           
-                    <div class="footer-about-social-list">
-                        <a href="#"><i class="ti-instagram"></i></a>
-                        <a href="#"><i class="ti-twitter"></i></a>
-                        <a href="#"><i class="ti-youtube"></i></a>
-                        <a href="#"><i class="ti-facebook"></i></a>
-                        <a href="#"><i class="ti-pinterest"></i></a>
-                    </div>
-            <div class=" px-2 rounded mt-4 date "> <span class="join"></span> </div>
+<body class="profile-body">
+  <div class="container profile-container mt-5 mb-5 p-4 d-flex justify-content-center">
+    <div class="profile-card shadow-lg p-5">
+      <div class="profile-content d-flex flex-column justify-content-center align-items-center text-center">
+        <!-- Profile Image -->
+        <div class="profile-img-wrapper mb-3">
+          <img
+            class="profile-img"
+            src="http://localhost:8089/SECURITY-SERVICE/user/files/{{UserById?.image}}"
+            alt="Profile Picture"
+          />
         </div>
+
+        <!-- Profile Info -->
+        <h3 class="profile-title">Profile</h3>
+        <h5 class="profile-username">{{ UserById?.username }}</h5>
+        <p class="profile-info"><i class="ti-email"></i> {{ UserById?.email }}</p>
+        <p class="profile-info"><i class="ti-mobile"></i> {{ UserById?.phoneNumber }}</p>
+        <p class="profile-info"><i class="ti-location-pin"></i> {{ UserById?.addresse }}</p>
+
+        <!-- Edit Button -->
+        <div class="mt-4">
+          <button
+            [routerLink]="['/update-profile', UserById?.id]"
+            (click)="refreshPageWithDelay()"
+            class="btn-edit"
+          >
+            Edit Profile
+          </button>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="footer-about-social-list mt-4">
+          <a href="#"><i class="ti-instagram"></i></a>
+          <a href="#"><i class="ti-twitter"></i></a>
+          <a href="#"><i class="ti-youtube"></i></a>
+          <a href="#"><i class="ti-facebook"></i></a>
+          <a href="#"><i class="ti-pinterest"></i></a>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 </body>

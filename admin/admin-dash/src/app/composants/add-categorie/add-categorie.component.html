@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row page-titles">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item active"><a href="javascript:void(0)"> <i class="fas fa-plus">  Nouvel
+                <li class="breadcrumb-item active"><a href="javascript:void(0)"> <i class="fas fa-plus">  New
                             Categorie </i> </a> </li>
 
             </ol>
@@ -15,14 +15,14 @@
                         <div class="row">
                           
                             <div class="col-lg-8 order-lg-1">
-                                <h4 class="mb-3">Ajouter un Categorie <br> <br></h4>
+                                <h4 class="mb-3">Add Categorie here <br> <br></h4>
                                 <form [formGroup]="formCategory" class="needs-validation" novalidate>
                                     <div class="row">
                                       <div class="col-md-6 mb-3">
-                                        <label for="firstName" class="form-label">Nom de la catégorie</label>
+                                        <label for="firstName" class="form-label">Name of the categorie</label>
                                         <input formControlName="name" type="text" class="form-control" id="firstName" placeholder="" required>
                                         <div class="invalid-feedback">
-                                          Un nom valide est requis.
+                                         A valid name is required.
                                         </div>
                                       </div>
                                     </div>
@@ -31,12 +31,12 @@
                                         <label for="description" class="form-label">Description</label>
                                         <textarea formControlName="description" class="form-control" id="description" placeholder="" required></textarea>
                                         <div class="invalid-feedback">
-                                          Une description valide est requise.
+                                          A valid description is required.
                                         </div>
                                       </div>
                                     </div>
                                     <div>
-                                      <button (click)="addCategory()" class="btn btn-primary btn-lg btn-block" type="button">Enregistrer la nouvelle catégorie</button>
+                                      <button (click)="addCategory()" class="btn btn-primary btn-lg btn-block" type="button">Save the new categorie</button>
                                     </div>
                                   </form>
                                   

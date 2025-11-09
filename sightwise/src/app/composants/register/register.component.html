@@ -1,295 +1,172 @@
-
-
-<div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="3" data-background="assets/img/2.png">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-left caption mt-90">
-<br><br><br>
-                <h1> Sign Up </h1>
-            </div>
-        </div>
+<div
+  class="banner-header section-padding valign bg-img bg-fixed"
+  data-overlay-dark="3"
+  data-background="assets/img/3.jpg"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-left caption mt-90">
+        <br /><br /><br />
+        <h1>Sign Up</h1>
+      </div>
     </div>
+  </div>
 </div>
 
 <section class="contact section-padding">
-
-  
   <div class="container">
-
-
-
-
-
     <div class="row mb-90">
+      <!-- Left Side: Description -->
       <div class="col-md-6 mb-60">
-        <h3>Notre Application  </h3>
-        <p>Notre application Guide Touristique est conçue pour les voyageurs curieux et les passionnés de découvertes, offrant une expérience enrichissante pour explorer les attractions touristiques des régions de votre choix. Que vous soyez un touriste en quête de nouvelles aventures ou un explorateur local désireux de découvrir des trésors cachés, notre application vous accompagne à chaque étape de votre voyage.
-         
+        <h3>About Our Application</h3>
+        <p>
+          JasmineTrip Guide is designed for passionate travelers and curious
+          explorers who want to discover the world in a meaningful way. Whether
+          you're visiting new destinations in Tunisia or uncovering hidden local gems, our
+          app guides you every step of the journey — making exploration simple,
+          exciting, and unforgettable.
         </p>
-          <br> Notre application Guide Touristique est votre compagnon idéal pour une aventure inoubliable. En quelques clics, plongez dans la richesse culturelle et naturelle des régions que vous visitez, et créez des souvenirs mémorables.
+        <br />
+        <p>
+          In just a few clicks, immerse yourself in the cultural and natural
+          beauty of your favorite regions in Tunisia . Find attractions, plan your
+          adventures, and create lifelong memories with ease.
+        </p>
+
         <div class="reservations mb-30">
           <div class="icon"><span class="flaticon-call"></span></div>
           <div class="text">
-            <p>Reservation</p> <a href="tel:855-100-4444">52016423</a>
+            <p>Contact Us</p>
+            <a href="tel:+21626262626">+216 26 262 626</a>
           </div>
         </div>
+
         <div class="reservations mb-30">
           <div class="icon"><span class="flaticon-envelope"></span></div>
           <div class="text">
-            <p>Email Info</p> <a href="mailto:info@luxuryhotel.com">chetouiiftikhar@gmail.com</a>
+            <p>Email</p>
+            <a href="mailto:support@jasminetrip.com">support@jasminetrip.com</a>
           </div>
         </div>
+
         <div class="reservations">
           <div class="icon"><span class="flaticon-location-pin"></span></div>
           <div class="text">
-            <p>Address</p> 1616 Broadway NY, New York 10001
-            <br>United States of America
+            <p>Office Address</p>
+            <span>Rue Bacha, Ariana , 26262, Tunisia</span>
           </div>
         </div>
       </div>
-      <div class="col-md-5 mb-30 offset-md-1">
-        <h3>Remplir le formulaire pour s'inscrir</h3>
-        <form  [formGroup]="formRegister"  class="contact__form" >
 
+      <!-- Right Side: Registration Form -->
+      <div class="col-md-5 mb-30 offset-md-1">
+        <h3>Fill Out the Form to Register</h3>
+        <form [formGroup]="formRegister" class="contact__form">
           <div class="row">
             <div class="col-12">
-              <div class="alert alert-success contact__msg" style="display: none" role="alert"> Your message was sent successfully. </div>
+              <div
+                class="alert alert-success contact__msg"
+                style="display: none"
+                role="alert"
+              >
+                Your message was sent successfully.
+              </div>
             </div>
           </div>
 
           <div class="row">
+            <!-- Email -->
             <div class="col-md-6 form-group">
-              <input formControlName="email" name="email" type="email"  required
-                     id="email" placeholder="example@gmail.com *" value="" required="">
-              <div class="invalid-feedback">
-                Valid email is required.
-              </div>
-
+              <input
+                formControlName="email"
+                type="email"
+                placeholder="Email *"
+                required
+              />
+              <div class="invalid-feedback">Valid email is required.</div>
             </div>
 
-
-
+            <!-- Username -->
             <div class="col-md-6 form-group">
-              <input formControlName="username" name="username" type="text" placeholder="Your name *"
-                     required="" id="username">
-              <div class="invalid-feedback">
-                Valid username is required.
-              </div>
+              <input
+                formControlName="username"
+                type="text"
+                placeholder="Username *"
+                required
+              />
+              <div class="invalid-feedback">Valid username is required.</div>
             </div>
 
-
+            <!-- Phone -->
             <div class="col-md-6 form-group">
-              <input formControlName="phoneNumber" name="phoneNumber" type="text" placeholder="Your Phone Number *" required
-                     id="phoneNumber"  value="" required="">
-              <div class="invalid-feedback">
-                Valid phoneNumber is required.
-              </div>
+              <input
+                formControlName="phoneNumber"
+                type="text"
+                placeholder="Phone Number *"
+                required
+              />
+              <div class="invalid-feedback">Valid phone number is required.</div>
             </div>
 
-
+            <!-- Address -->
             <div class="col-md-6 form-group">
-              <input formControlName="addresse" name="addresse" type="text" placeholder="Adresse*" id="addresse"
-                     value="" required="">
-              <div class="invalid-feedback">
-                Valid addresse is required.
-              </div>
+              <input
+                formControlName="addresse"
+                type="text"
+                placeholder="Address *"
+                required
+              />
+              <div class="invalid-feedback">Valid address is required.</div>
             </div>
 
-
+            <!-- Passport -->
             <div class="col-md-6 form-group">
-              <input formControlName="passport_num" name="passport_num" type="text" placeholder="passport_num"
-                     id="passport_num"  value="" required="">
+              <input
+                formControlName="passport_num"
+                type="text"
+                placeholder="Passport Number *"
+                required
+              />
               <div class="invalid-feedback">
-                Valid nationnality is required.
+                Valid passport number is required.
               </div>
             </div>
 
-
-            <div  class="col-md-6 form-group">
-              <input  formControlName="password" name="password" type="password" placeholder="password *" required
-                      id="password"  value="" required="">
-              <div class="invalid-feedback">
-                Valid password is required.
-              </div>
-            </div>
-
+            <!-- Password -->
             <div class="col-md-6 form-group">
-              <input  class="form-control" name="file" type="file" accept="image/*" required=""
-                      (change)="handleFileInput($event)" >
+              <input
+                formControlName="password"
+                type="password"
+                placeholder="Password *"
+                required
+              />
+              <div class="invalid-feedback">Valid password is required.</div>
             </div>
 
-            <div class="col-md-12 text-center" >
-              <button  (click)="Register()"  type="submit" class="butn-dark2" ><span>Register</span></button>
+            <!-- Upload Image -->
+            <div class="col-md-6 form-group">
+              <input
+                class="form-control"
+                type="file"
+                accept="image/*"
+                (change)="handleFileInput($event)"
+                required
+              />
+            </div>
+
+            <!-- Submit -->
+            <div class="col-md-12 text-center">
+              <button
+                (click)="Register()"
+                type="submit"
+                class="butn-dark2"
+              >
+                <span>Register</span>
+              </button>
             </div>
           </div>
         </form>
       </div>
     </div>
-
-
-
   </div>
 </section>
-
-
-
-
-
-<!--bootstrap-form-->
-
-<!--<section class="h-100 bg-dark">-->
-<!--  <div class="container py-5 h-100">-->
-<!--    <div class="row d-flex justify-content-center align-items-center h-100">-->
-<!--      <div class="col">-->
-<!--        <div class="card card-registration my-4">-->
-<!--          <div class="row g-0">-->
-<!--            <div class="col-xl-6 d-none d-xl-block">-->
-<!--              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"-->
-<!--                   alt="Sample photo" class="img-fluid"-->
-<!--                   style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />-->
-<!--            </div>-->
-<!--            <div class="col-xl-6">-->
-<!--              <div class="card-body p-md-5 text-black">-->
-<!--                <h3 class="mb-5 text-uppercase">Student registration form</h3>-->
-
-<!--                <div class="row">-->
-<!--                  <div class="col-md-6 mb-4">-->
-<!--                    <div data-mdb-input-init class="form-outline">-->
-<!--                      <input type="text" id="form3Example1m" class="form-control form-control-lg" />-->
-<!--                      <label class="form-label" for="form3Example1m">First name</label>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                  <div class="col-md-6 mb-4">-->
-<!--                    <div data-mdb-input-init class="form-outline">-->
-<!--                      <input type="text" id="form3Example1n" class="form-control form-control-lg" />-->
-<!--                      <label class="form-label" for="form3Example1n">Last name</label>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-
-<!--                <div class="row">-->
-<!--                  <div class="col-md-6 mb-4">-->
-<!--                    <div data-mdb-input-init class="form-outline">-->
-<!--                      <input type="text" id="form3Example1m1" class="form-control form-control-lg" />-->
-<!--                      <label class="form-label" for="form3Example1m1">Mother's name</label>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                  <div class="col-md-6 mb-4">-->
-<!--                    <div data-mdb-input-init class="form-outline">-->
-<!--                      <input type="text" id="form3Example1n1" class="form-control form-control-lg" />-->
-<!--                      <label class="form-label" for="form3Example1n1">Father's name</label>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-
-<!--                <div data-mdb-input-init class="form-outline mb-4">-->
-<!--                  <input type="text" id="form3Example8" class="form-control form-control-lg" />-->
-<!--                  <label class="form-label" for="form3Example8">Address</label>-->
-<!--                </div>-->
-
-<!--                <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">-->
-
-<!--                  <h6 class="mb-0 me-4">Gender: </h6>-->
-
-<!--                  <div class="form-check form-check-inline mb-0 me-4">-->
-<!--                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"-->
-<!--                           value="option1" />-->
-<!--                    <label class="form-check-label" for="femaleGender">Female</label>-->
-<!--                  </div>-->
-
-<!--                  <div class="form-check form-check-inline mb-0 me-4">-->
-<!--                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"-->
-<!--                           value="option2" />-->
-<!--                    <label class="form-check-label" for="maleGender">Male</label>-->
-<!--                  </div>-->
-
-<!--                  <div class="form-check form-check-inline mb-0">-->
-<!--                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"-->
-<!--                           value="option3" />-->
-<!--                    <label class="form-check-label" for="otherGender">Other</label>-->
-<!--                  </div>-->
-
-<!--                </div>-->
-
-<!--                <div class="row">-->
-<!--                  <div class="col-md-6 mb-4">-->
-
-<!--                    <select data-mdb-select-init>-->
-<!--                      <option value="1">State</option>-->
-<!--                      <option value="2">Option 1</option>-->
-<!--                      <option value="3">Option 2</option>-->
-<!--                      <option value="4">Option 3</option>-->
-<!--                    </select>-->
-
-<!--                  </div>-->
-<!--                  <div class="col-md-6 mb-4">-->
-
-<!--                    <select data-mdb-select-init>-->
-<!--                      <option value="1">City</option>-->
-<!--                      <option value="2">Option 1</option>-->
-<!--                      <option value="3">Option 2</option>-->
-<!--                      <option value="4">Option 3</option>-->
-<!--                    </select>-->
-
-<!--                  </div>-->
-<!--                </div>-->
-
-<!--                <div data-mdb-input-init class="form-outline mb-4">-->
-<!--                  <input type="text" id="form3Example9" class="form-control form-control-lg" />-->
-<!--                  <label class="form-label" for="form3Example9">DOB</label>-->
-<!--                </div>-->
-
-<!--                <div data-mdb-input-init class="form-outline mb-4">-->
-<!--                  <input type="text" id="form3Example90" class="form-control form-control-lg" />-->
-<!--                  <label class="form-label" for="form3Example90">Pincode</label>-->
-<!--                </div>-->
-
-<!--                <div data-mdb-input-init class="form-outline mb-4">-->
-<!--                  <input type="text" id="form3Example99" class="form-control form-control-lg" />-->
-<!--                  <label class="form-label" for="form3Example99">Course</label>-->
-<!--                </div>-->
-
-<!--                <div data-mdb-input-init class="form-outline mb-4">-->
-<!--                  <input type="text" id="form3Example97" class="form-control form-control-lg" />-->
-<!--                  <label class="form-label" for="form3Example97">Email ID</label>-->
-<!--                </div>-->
-
-<!--                <div class="d-flex justify-content-end pt-3">-->
-<!--                  <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-light btn-lg">Reset all</button>-->
-<!--                  <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-warning btn-lg ms-2">Submit form</button>-->
-<!--                </div>-->
-
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</section>-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

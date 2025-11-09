@@ -1,0 +1,148 @@
+/* Background */
+.login-section {
+  background: linear-gradient(135deg, #fde6e6, #f9dada, #f7e1e1);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Container */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Card Style */
+.login-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 40px 45px;
+  width: 400px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Titles */
+.title {
+  font-size: 26px;
+  font-weight: 600;
+  color: #5a3a3a;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #856060;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+/* Form */
+.form-content {
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #5b3a3a;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #d8bfbf;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #b97a7a;
+  box-shadow: 0 0 6px rgba(185, 122, 122, 0.4);
+}
+
+/* Options */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  font-size: 13px;
+}
+
+.forgot-link {
+  color: #b97a7a;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.forgot-link:hover {
+  color: #8a5757;
+}
+
+/* Button */
+.btn-login {
+  width: 100%;
+  background: linear-gradient(90deg, #cda48f, #b68572);
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+.btn-login:hover {
+  background: linear-gradient(90deg, #b68572, #9c6a5e);
+  box-shadow: 0 0 10px rgba(182, 133, 114, 0.4);
+}
+
+/* Sign Up link */
+.signup-text {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #7a5656;
+}
+
+.signup-text a {
+  color: #b68572;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.signup-text a:hover {
+  text-decoration: underline;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

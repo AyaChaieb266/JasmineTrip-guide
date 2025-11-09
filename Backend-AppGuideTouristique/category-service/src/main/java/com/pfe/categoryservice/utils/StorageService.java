@@ -65,23 +65,22 @@ public class StorageService {
 //    private static final int TARGET_WIDTH = 300; // Largeur cible pour l'image redimensionnée
 //    private static final int TARGET_HEIGHT = 200; // Hauteur cible pour l'image redimensionnée
 
-    public String storee(MultipartFile file,int TARGET_HEIGHT, int TARGET_WIDTH) {
+    public String storee(MultipartFile file, int TARGET_HEIGHT, int TARGET_WIDTH) {
         try {
-            // Générer un nom de fichier aléatoire
+            // Generate random file name
             String fileName = Integer.toString(new Random().nextInt(1000000000));
-            // Extraire l'extension du fichier
             String ext = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf('.'));
-            // Construire le nom de fichier original
             String name = file.getOriginalFilename().substring(0, file.getOriginalFilename().lastIndexOf('.'));
             String originalFilename = name + fileName + ext;
 
-            // Lire l'image depuis le flux d'entrée du fichier MultipartFile
+            // Read image
             BufferedImage originalImage = ImageIO.read(file.getInputStream());
-
-            // Redimensionner l'image
             BufferedImage resizedImage = resizeImage(originalImage, TARGET_WIDTH, TARGET_HEIGHT);
 
-            // Enregistrer l'image redimensionnée dans le répertoire de stockage
+            // Create upload directory if not exists
+            Files.createDirectories(this.rootLocation);
+
+            // Save image
             Path destinationFile = this.rootLocation.resolve(originalFilename);
             ImageIO.write(resizedImage, ext.substring(1), destinationFile.toFile());
 
@@ -90,6 +89,7 @@ public class StorageService {
             throw new RuntimeException("Failed to store the image.", e);
         }
     }
+
 
     private BufferedImage resizeImage(BufferedImage originalImage, int targetWidth, int targetHeight) {
         // Créer une nouvelle image avec les dimensions cibles

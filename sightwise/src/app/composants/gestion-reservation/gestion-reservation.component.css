@@ -1,62 +1,52 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 20px;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
 .reservations-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-}
-
-.reservations-table th,
-.reservations-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .reservations-table th {
-    background-color: #f2f2f2;
+  background-color: #c3a46d;
+  color: white;
+  padding: 12px;
+  text-align: center;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.reservations-table td {
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 .btn-edit,
 .btn-delete {
-    padding: 5px 10px;
-    border: none;
-    cursor: pointer;
-}
-
-.btn-edit {
-    background-color: #aa8453;
-    color: white;
-    margin-right: 5px;
+  background-color: #c3a46d;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 3px;
+  font-size: 14px;
 }
 
 .btn-delete {
-    background-color: #aa8453;
-    color: white;
+  background-color: #444;
 }
 
-.btn-edit:hover {
-    background-color: goldenrod;
-}
-
+.btn-edit:hover,
 .btn-delete:hover {
-    background-color: #da190b;
+  opacity: 0.9;
 }

@@ -154,7 +154,7 @@ export class DetailAttractionComponent implements OnInit {
   getCategory(){
     this.service.allCategory().subscribe((res:any)=>{
       this.listCategory=res
-      console.log("liste de category est ", this.listCategory)
+      console.log("list of categories is", this.listCategory)
       
 
     })
@@ -163,7 +163,7 @@ export class DetailAttractionComponent implements OnInit {
   getAttraction(){
     this.service.allAttraction().subscribe((res:any)=>{
       this.listAttraction=res
-      console.log("liste d'attraction ", this.listAttraction);
+      console.log("list of attraction is ", this.listAttraction);
  },
 
 )
@@ -219,7 +219,7 @@ export class DetailAttractionComponent implements OnInit {
       addAverageRating(): void {
         this.service_com.touristCommentAtraction(this.id,this.userConnect.id,this.form.value).subscribe(
           (averageRating: any) => {
-            console.log('average addddddddd :', averageRating);
+            console.log('average add :', averageRating);
             Swal.fire('Added successfully');
       
             // Ajouter le nouveau commentaire au début de la liste
@@ -294,7 +294,7 @@ addReservation() {
   this.service_res.createReservation(this.id, this.userConnect.id, this.serviceIds, this.formreservation.value).subscribe(
     (res) => {
       Swal.fire({
-        title: "confirme!",
+        title: "confirmed ",
         text: "save reservation",
         imageUrl: "https://unsplash.it/400/200",
         imageWidth: 400,

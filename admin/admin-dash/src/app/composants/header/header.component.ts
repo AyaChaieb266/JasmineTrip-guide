@@ -8,40 +8,51 @@ import { SecuritéServiceService } from 'src/app/services/securité-service.serv
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  user:any
-  userConnect=JSON.parse(localStorage.getItem("userConnect"))
+  user: any;
+  userConnect: any;
 
-  constructor(private service_sec:SecuritéServiceService,
-              private router :Router,
-
-
-  ) { }
+  constructor(
+    private service_sec: SecuritéServiceService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.getUserById()
+    this.userConnect = JSON.parse(localStorage.getItem('userConnect') || '{}');
+
+    if (this.userConnect?.id) {
+      this.getUserById();
+    } else {
+      console.warn('⚠️ No user found in localStorage');
+    }
   }
 
-
-  logout(){
-    this.service_sec.logout().subscribe((res)=>{
-      console.log("message" , res);
-      if(res.message ==  "Log out successful!"){
-        localStorage.clear()
-       this.router.navigateByUrl("/")
+  getUserById(): void {
+    this.service_sec.getUserByIdFromToken(this.userConnect.id).subscribe({
+      next: (res: any) => {
+        this.user = res;
+        console.log('✅ Admin details:', this.user);
+      },
+      error: (err) => {
+        console.error('❌ Error fetching user details:', err);
       }
+    });
+  }
 
-
-
-
-    })}
-    getUserById(){
-    this.service_sec.getUserByIdFromToken(this.userConnect.id).subscribe((res:any)=>{
-        this.user = res
-      console.log("Detail", this.user);
-
-
-      })
-
-    }
-
+  logout(): void {
+    this.service_sec.logout().subscribe({
+      next: (res) => {
+        console.log('Logout response:', res);
+        if (res.message === 'Log out successful!') {
+          localStorage.clear();
+          this.router.navigateByUrl('/login');
+        }
+      },
+      error: (err) => {
+        console.error('❌ Logout error:', err);
+        // even if backend fails, still clear and redirect
+        localStorage.clear();
+        this.router.navigateByUrl('/login');
+      }
+    });
+  }
 }

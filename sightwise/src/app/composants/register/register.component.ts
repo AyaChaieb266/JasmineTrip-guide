@@ -53,7 +53,7 @@ export class RegisterComponent implements OnInit {
       formdata.append('file', this.fileToUpload[0]);
 
       this.securite_svc.Register(formdata).subscribe((res: any) => {
-        Swal.fire('Merci de Verifier votre mail de confirmation');
+        Swal.fire('Please check your confirmation email.');
         console.log('tourist', res);
       });
     }

@@ -1,108 +1,124 @@
-
-<!--header-->
+<!-- ===== HEADER ===== -->
 <header class="header slider-fade">
-    <div class="owl-carousel owl-theme" >
-        <!-- The opacity on the image is made with "data-overlay-dark="number". You can change it using the numbers 0-9. -->
-        <div class="text-center item bg-img" data-overlay-dark="2" data-background="assets/img/slider/_DSC2921.jpg">
-            <div class="v-middle caption">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-10 offset-md-1">
-
-                            <h1> Descendre et découvrir les meilleures attractions  </h1>
-                            <h1></h1>
-                            <div class="butn-light mt-30 mb-30"> <a href="#" data-scroll-nav="1"><span>Destinations & Services</span></a> </div>
-                        </div>
-                    </div>
-                </div>
+  <div class="owl-carousel owl-theme">
+    <!-- The opacity on the image is controlled by "data-overlay-dark". You can change the number from 0–9. -->
+    <div class="text-center item bg-img" data-overlay-dark="2" data-background="assets/img/slider/_DSC2921.jpg">
+      <div class="v-middle caption">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-10 offset-md-1">
+              <h1>Explore and discover the best attractions</h1>
+              <div class="butn-light mt-30 mb-30">
+                <a href="#" data-scroll-nav="1">
+                  <span>Destinations & Services</span>
+                </a>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
 
-    </div>
-    <!-- slider reservation -->
-    <div class="reservation">
-        <a >
-            <div class="icon d-flex justify-content-center align-items-center">
-                <i class="flaticon-call"></i>
-            </div>
-            <div class="call"><span>+216 56888777</span> <br>Reservation</div>
-        </a>
-    </div>
+  <!-- ===== SLIDER RESERVATION ===== -->
+  <div class="reservation">
+    <a>
+      <div class="icon d-flex justify-content-center align-items-center">
+        <i class="flaticon-call"></i>
+      </div>
+      <div class="call">
+        <span>+216 26262626</span> <br />Reservation
+      </div>
+    </a>
+  </div>
 </header>
-<!--end header-->
+<!-- ===== END HEADER ===== -->
 
-
-
-
-
+<!-- ===== ATTRACTIONS SECTION ===== -->
 <section class="rooms1 section-padding bg-cream" data-scroll-index="1">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-subtitle"> JasmineTrip</div>
-                <div class="section-title">Tous les  Attractions </div>
-                <input class="form-control border-3 mb-4 rounded-pill w-100 py-3 ps-4 pe-5" type="text"  [(ngModel)]="term"
-                placeholder="search">
-                <!-- <form>
-                    <input type="text" name="search" placeholder="Type here ...">
-                    <button type="submit"><i class="ti-search" aria-hidden="true"></i></button>
-                </form> -->
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="section-subtitle">JasmineTrip</div>
+        <div class="section-title">All Attractions</div>
 
-        </div>
-        <div class="tab-class text-center">
-            <ul class="nav nav-pills d-inline-flex justify-content-center mb-5">
+        <input
+          class="form-control border-3 mb-4 rounded-pill w-100 py-3 ps-4 pe-5"
+          type="text"
+          [(ngModel)]="term"
+          placeholder="Search attractions..."
+        />
+      </div>
+    </div>
 
-                     <li class="nav-item" *ngFor="let CAT of listCategory">
-                         <a type="button" class="d-flex mx-3 py-2 border border-primary rounded-pill"
-                             [ngClass]="{'selected': selectedcategory === CAT?.id}"
-                             (click)="getCAT(CAT?.id)" data-bs-toggle="pill">
-                             <span style="width: 150px;">{{ CAT?.name }}</span>
-                         </a>
-                     </li>
-                 </ul>
-             </div>
+    <!-- ===== CATEGORY FILTER ===== -->
+    <div class="tab-class text-center">
+      <ul class="nav nav-pills d-inline-flex justify-content-center mb-5">
+        <li class="nav-item" *ngFor="let CAT of listCategory">
+          <a
+            type="button"
+            class="d-flex mx-3 py-2 border border-primary rounded-pill"
+            [ngClass]="{'selected': selectedcategory === CAT?.id}"
+            (click)="getCAT(CAT?.id)"
+            data-bs-toggle="pill"
+          >
+            <span style="width: 150px;">{{ CAT?.name }}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
 
+    <!-- ===== ATTRACTIONS LIST ===== -->
+    <div class="row">
+      <div
+        class="col-md-4"
+        *ngFor="let a of listAttraction | filter:term | paginate: { itemsPerPage: 3, currentPage: p }"
+      >
+        <div class="item">
+          <div class="position-re o-hidden">
+            <img src="http://localhost:8089/CATEGORY-SERVICE/attractions/files/{{a?.photos[0]}}" alt="Attraction photo" />
+          </div>
+          <span class="category">
+            <a>{{ a?.photos.length }} photos</a>
+          </span>
 
+          <div class="con">
+            <h6><a href="#">{{ a?.price }}$ / Night</a></h6>
 
+            <a (click)="viewAllImages(a)" type="button" class="btn-btn text-white">
+              View All Images <i class="fa fa-arrow-right ms-2"></i>
+            </a>
 
+            <h5><a href="#">{{ a?.name }}</a></h5>
 
+            <div class="line"></div>
 
-
-
-        <div class="row">
-            <div class="col-md-4"  *ngFor="let a of listAttraction |filter:term | paginate: { itemsPerPage: 3, currentPage: p } ">
-                <div class="item">
-                    <div class="position-re o-hidden"> <img src="http://localhost:8089/CATEGORY-SERVICE/attractions/files/{{a?.photos[0]}}" alt=""> </div>
-                     <span class="category"><a >{{a?.photos.length}} photos</a></span>
-
-                    <div class="con">
-                        <h6><a href="room-details.html">{{a?.price}}$/Night</a></h6>
-
-
-                        <a (click)="viewAllImages(a)" type="submit" class="btn-btn text-white">/ View All images
-                            <i class="fa fa-arrow-right ms-2"></i></a>
-                            <h5><a href="room-details.html">{{a?.name}}</a> </h5>
-                        <div class="line"></div>
-                        <div class="row facilities">
-                            <div class="col col-md-7">
-                                <ul>
-                                    <li><i class="flaticon-bed"></i></li>
-                                    <li><i class="flaticon-bath"></i></li>
-                                    <li><i class="flaticon-breakfast"></i></li>
-                                    <li><i class="flaticon-towel"></i></li>
-                                </ul>
-                            </div>
-                            <div class="col col-md-5 text-end">
-                                <div class="permalink"><a [routerLink]="['/detail',a?.id]" (click)="refreshPageWithDelay()">Details <i class="ti-arrow-right"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="row facilities">
+              <div class="col col-md-7">
+                <ul>
+                  <li><i class="flaticon-bed"></i></li>
+                  <li><i class="flaticon-bath"></i></li>
+                  <li><i class="flaticon-breakfast"></i></li>
+                  <li><i class="flaticon-towel"></i></li>
+                </ul>
+              </div>
+              <div class="col col-md-5 text-end">
+                <div class="permalink">
+                  <a [routerLink]="['/detail', a?.id]" (click)="refreshPageWithDelay()">
+                    Details <i class="ti-arrow-right"></i>
+                  </a>
                 </div>
+              </div>
             </div>
-
+          </div>
         </div>
-        <div style="display: flex; justify-content: center;">
-        <pagination-controls (pageChange)="p = $event"></pagination-controls>
-    </div> </div>
-    </section>
+      </div>
+    </div>
+
+    <!-- ===== PAGINATION ===== -->
+    <div style="display: flex; justify-content: center;">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+</section>
+<!-- ===== END ATTRACTIONS SECTION ===== -->

@@ -1,34 +1,50 @@
 <br>
 <section class="rooms1 section-padding bg-cream" data-scroll-index="1">
+  <div class="container">
+    <h1>Reservation Management</h1>
 
-    <div class="container">
-        <h1>Gestion des Réservations</h1>
-        <table class="reservations-table">
-            <thead>
-                <tr>
-                    <th>ID RES</th>
-                    <th>Attraction</th>
-                    <th>Date de Réservation</th>
-                    <th>Services</th>
-                    <th> Additions</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let r of listtReservation">
-                    <td>{{r.id}}</td>
-                    <td>{{userConnect.username}}</td>
-                    <td>{{r.date_debut}}</td>
-                    <td>Room cleaning</td>
-                    <td>Room cleaning</td>
-                    <td>
-                        <button  class="btn-edit" >Modifier</button>
-                        <button class="btn-delete">Annuler</button>
-                    </td>
-                </tr>
-               
-            </tbody>
-        </table>
-    </div>
+    <table class="reservations-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Attraction</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Services</th>
+          <th>Total</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let r of listtReservation">
+          <td>{{ r.id }}</td>
+
+          <!-- show attraction name if exists -->
+          <td>{{ r.attraction?.name || '—' }}</td>
+
+          <!-- show clean date format -->
+          <td>{{ r.date_debut | date: 'mediumDate' }}</td>
+          <td>{{ r.date_fin | date: 'mediumDate' }}</td>
+
+          <!-- show dynamic services -->
+          <td>
+            <ul *ngIf="r.services?.length; else noService">
+              <li *ngFor="let s of r.services">{{ s.name }}</li>
+            </ul>
+            <ng-template #noService><span>No services</span></ng-template>
+          </td>
+
+          <!-- show total/addition -->
+          <td>${{ r.addition || 0 }}</td>
+
+          <!-- actions -->
+          <td>
+            <button class="btn-edit">Edit</button>
+            <button class="btn-delete">Cancel</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </section>
-
